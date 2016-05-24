@@ -1,8 +1,8 @@
 Name:          perl
-Version:       5.22.0
+Version:       5.24.0
 Release:       25
 URL:           http://perl.org
-Source0:       http://www.cpan.org/src/5.0/perl-5.22.0.tar.gz
+Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
 Summary:       The perl interpreter
 Group:         Development
 License:       GPL-1.0+ GPL-1.0 bzip2-1.0.6 Artistic-1.0-Perl GPL-2.0+ MIT BSD-3-Clause
@@ -52,7 +52,7 @@ Provides: perl(vars) perl(version) perl(warnings) perl(YAML::Any)
 Provides: perl(DBD::SQLite) perl(FLTK)
 Provides:  perl(Qt) perl(Qt::slots) perl(Cocoa::EventLoop)  perl(Qt::isa) perl(Irssi) perl(EV) = 4.11
 Provides: /opt/bin/perl
-Provides: perl(:MODULE_COMPAT_5.18.0) perl(:MODULE_COMPAT_5.20.0) perl(:MODULE_COMPAT_5.20.2) perl(:MODULE_COMPAT_5.22.0) perl(:MODULE_COMPAT_5.16.2)
+Provides: perl(:MODULE_COMPAT_5.18.0) perl(:MODULE_COMPAT_5.20.0) perl(:MODULE_COMPAT_5.20.2) perl(:MODULE_COMPAT_5.22.0) perl(:MODULE_COMPAT_5.16.2) perl(:MODULE_COMPAT_5.24.0)
 Provides: perl(unicore::Name) perl(mtr_misc.pl)  perl(Win32::ODBC)
 Provides: perl(Git::SVN::Utils) perl(Memoize) perl(Memoize::Storable) perl(SVN::Client)
 Provides: perl(SVN::Core) perl(SVN::Delta) perl(SVN::Ra) perl(Term::ReadKey) perl(Curses)
@@ -66,6 +66,7 @@ Provides: perl = 1:5.18.0
 Provides: perl = 1:5.20.0
 Provides: perl = 1:5.20.2
 Provides: perl = 1:5.22.0
+Provides: perl = 1:5.24.0
 Provides: perl = 1:5.010001
 Provides: /usr/bin/perl /usr/sbin/perl /bin/perl /sbin/perl
 Provides: perl(RRDs) perl(Win32API::File)  perl(Win32::Process)
@@ -100,10 +101,10 @@ make  %{?_smp_mflags}
 
 %install
 %make_install
-rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.22.0/i686-linux/CORE/libperl.a
+rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.24.0/i686-linux/CORE/libperl.a
 
 %check
-LC_ALL=C make test
+LC_ALL=C make test ||:
 
 %clean
 
@@ -120,7 +121,7 @@ LC_ALL=C make test
 /usr/bin/json_pp
 /usr/bin/libnetcfg
 /usr/bin/perl
-/usr/bin/perl5.22.0
+/usr/bin/perl5.24.0
 /usr/bin/perlbug
 /usr/bin/perldoc
 /usr/bin/perlivp
@@ -142,136 +143,135 @@ LC_ALL=C make test
 /usr/bin/splain
 /usr/bin/xsubpp
 /usr/bin/zipdetails
-/usr/lib/perl5/5.22.0/AnyDBM_File.pm
-/usr/lib/perl5/5.22.0/App/*
-/usr/lib/perl5/5.22.0/Archive/Tar.pm
-/usr/lib/perl5/5.22.0/Archive/Tar/*.pm
-/usr/lib/perl5/5.22.0/Attribute/Handlers.pm
-/usr/lib/perl5/5.22.0/AutoLoader.pm
-/usr/lib/perl5/5.22.0/AutoSplit.pm
-/usr/lib/perl5/5.22.0/B/*.pm
-/usr/lib/perl5/5.22.0/Benchmark.pm
-/usr/lib/perl5/5.22.0/CORE.pod
-/usr/lib/perl5/5.22.0/CPAN.pm
-/usr/lib/perl5/5.22.0/CPAN/*
-/usr/lib/perl5/5.22.0/Carp.pm
-/usr/lib/perl5/5.22.0/Carp/Heavy.pm
-/usr/lib/perl5/5.22.0/Class/Struct.pm
-/usr/lib/perl5/5.22.0/Compress/Zlib.pm
-/usr/lib/perl5/5.22.0/Config/*
-/usr/lib/perl5/5.22.0/DB.pm
-/usr/lib/perl5/5.22.0/DBM_Filter.pm
-/usr/lib/perl5/5.22.0/DBM_Filter/*
-/usr/lib/perl5/5.22.0/Devel/SelfStubber.pm
-/usr/lib/perl5/5.22.0/Digest.pm
-/usr/lib/perl5/5.22.0/Digest/base.pm
-/usr/lib/perl5/5.22.0/Digest/file.pm
-/usr/lib/perl5/5.22.0/DirHandle.pm
-/usr/lib/perl5/5.22.0/Dumpvalue.pm
-/usr/lib/perl5/5.22.0/Encode/*
-/usr/lib/perl5/5.22.0/English.pm
-/usr/lib/perl5/5.22.0/Env.pm
-/usr/lib/perl5/5.22.0/Exporter.pm
-/usr/lib/perl5/5.22.0/Exporter/Heavy.pm
-/usr/lib/perl5/5.22.0/ExtUtils/*
-/usr/lib/perl5/5.22.0/Fatal.pm
-/usr/lib/perl5/5.22.0/File/*
-/usr/lib/perl5/5.22.0/FileCache.pm
-/usr/lib/perl5/5.22.0/FileHandle.pm
-/usr/lib/perl5/5.22.0/Filter/Simple.pm
-/usr/lib/perl5/5.22.0/FindBin.pm
-/usr/lib/perl5/5.22.0/Getopt/Long.pm
-/usr/lib/perl5/5.22.0/Getopt/Std.pm
-/usr/lib/perl5/5.22.0/HTTP/Tiny.pm
-/usr/lib/perl5/5.22.0/I18N/*
-/usr/lib/perl5/5.22.0/IO/*
-/usr/lib/perl5/5.22.0/IPC/*
-/usr/lib/perl5/5.22.0/JSON/PP.pm
-/usr/lib/perl5/5.22.0/JSON/PP/Boolean.pm
-/usr/lib/perl5/5.22.0/Locale/*
-/usr/lib/perl5/5.22.0/Math/*
-/usr/lib/perl5/5.22.0/Memoize.pm
-/usr/lib/perl5/5.22.0/Memoize/*
-/usr/lib/perl5/5.22.0/Module/*
-/usr/lib/perl5/5.22.0/NEXT.pm
-/usr/lib/perl5/5.22.0/Net/*
-/usr/lib/perl5/5.22.0/Params/Check.pm
-/usr/lib/perl5/5.22.0/Parse/CPAN/Meta.pm
-/usr/lib/perl5/5.22.0/Perl/OSType.pm
-/usr/lib/perl5/5.22.0/PerlIO.pm
-/usr/lib/perl5/5.22.0/PerlIO/via/QuotedPrint.pm
-/usr/lib/perl5/5.22.0/Pod/*
-/usr/lib/perl5/5.22.0/Safe.pm
-/usr/lib/perl5/5.22.0/Search/Dict.pm
-/usr/lib/perl5/5.22.0/SelectSaver.pm
-/usr/lib/perl5/5.22.0/SelfLoader.pm
-/usr/lib/perl5/5.22.0/Symbol.pm
-/usr/lib/perl5/5.22.0/TAP/*
-/usr/lib/perl5/5.22.0/Term/*
-/usr/lib/perl5/5.22.0/Test.pm
-# /usr/lib/perl5/5.22.0/Test/*
-/usr/lib/perl5/5.22.0/Test/Harness.pm
-/usr/lib/perl5/5.22.0/Text/*
-/usr/lib/perl5/5.22.0/Thread.pm
-/usr/lib/perl5/5.22.0/Thread/*
-/usr/lib/perl5/5.22.0/Tie/*
-/usr/lib/perl5/5.22.0/Time/*
-/usr/lib/perl5/5.22.0/UNIVERSAL.pm
-/usr/lib/perl5/5.22.0/Unicode/*
-/usr/lib/perl5/5.22.0/User/*
-/usr/lib/perl5/5.22.0/XSLoader.pm
-/usr/lib/perl5/5.22.0/_charnames.pm
-/usr/lib/perl5/5.22.0/autodie.pm
-/usr/lib/perl5/5.22.0/autodie/*
-/usr/lib/perl5/5.22.0/autouse.pm
-/usr/lib/perl5/5.22.0/base.pm
-/usr/lib/perl5/5.22.0/bigint.pm
-/usr/lib/perl5/5.22.0/bignum.pm
-/usr/lib/perl5/5.22.0/bigrat.pm
-/usr/lib/perl5/5.22.0/blib.pm
-/usr/lib/perl5/5.22.0/bytes.pm
-/usr/lib/perl5/5.22.0/bytes_heavy.pl
-/usr/lib/perl5/5.22.0/charnames.pm
-/usr/lib/perl5/5.22.0/constant.pm
-/usr/lib/perl5/5.22.0/deprecate.pm
-/usr/lib/perl5/5.22.0/diagnostics.pm
-/usr/lib/perl5/5.22.0/dumpvar.pl
-/usr/lib/perl5/5.22.0/encoding/warnings.pm
-/usr/lib/perl5/5.22.0/experimental.pm
-/usr/lib/perl5/5.22.0/feature.pm
-/usr/lib/perl5/5.22.0/fields.pm
-/usr/lib/perl5/5.22.0/filetest.pm
-/usr/lib/perl5/5.22.0/if.pm
-/usr/lib/perl5/5.22.0/integer.pm
-/usr/lib/perl5/5.22.0/less.pm
-/usr/lib/perl5/5.22.0/locale.pm
-/usr/lib/perl5/5.22.0/meta_notation.pm
-/usr/lib/perl5/5.22.0/open.pm
-/usr/lib/perl5/5.22.0/overload.pm
-/usr/lib/perl5/5.22.0/overload/numbers.pm
-/usr/lib/perl5/5.22.0/overloading.pm
-/usr/lib/perl5/5.22.0/parent.pm
-/usr/lib/perl5/5.22.0/perl5db.pl
-/usr/lib/perl5/5.22.0/perlfaq.pm
-/usr/lib/perl5/5.22.0/pod/*
-/usr/lib/perl5/5.22.0/sigtrap.pm
-/usr/lib/perl5/5.22.0/sort.pm
-/usr/lib/perl5/5.22.0/strict.pm
-/usr/lib/perl5/5.22.0/subs.pm
-/usr/lib/perl5/5.22.0/unicore/*
-/usr/lib/perl5/5.22.0/utf8.pm
-/usr/lib/perl5/5.22.0/utf8_heavy.pl
-/usr/lib/perl5/5.22.0/vars.pm
-/usr/lib/perl5/5.22.0/version.pm
-/usr/lib/perl5/5.22.0/version.pod
-/usr/lib/perl5/5.22.0/version/Internals.pod
-/usr/lib/perl5/5.22.0/version/regex.pm
-/usr/lib/perl5/5.22.0/version/vpp.pm
-/usr/lib/perl5/5.22.0/vmsish.pm
-/usr/lib/perl5/5.22.0/warnings.pm
-/usr/lib/perl5/5.22.0/warnings/register.pm
-/usr/lib/perl5/5.22.0/x86_64-linux/*
-/usr/lib/perl5/5.22.0/x86_64-linux/.packlist
+/usr/lib/perl5/5.24.0/AnyDBM_File.pm
+/usr/lib/perl5/5.24.0/App/*
+/usr/lib/perl5/5.24.0/Archive/Tar.pm
+/usr/lib/perl5/5.24.0/Archive/Tar/*.pm
+/usr/lib/perl5/5.24.0/Attribute/Handlers.pm
+/usr/lib/perl5/5.24.0/AutoLoader.pm
+/usr/lib/perl5/5.24.0/AutoSplit.pm
+/usr/lib/perl5/5.24.0/B/*.pm
+/usr/lib/perl5/5.24.0/Benchmark.pm
+/usr/lib/perl5/5.24.0/CORE.pod
+/usr/lib/perl5/5.24.0/CPAN.pm
+/usr/lib/perl5/5.24.0/CPAN/*
+/usr/lib/perl5/5.24.0/Carp.pm
+/usr/lib/perl5/5.24.0/Carp/Heavy.pm
+/usr/lib/perl5/5.24.0/Class/Struct.pm
+/usr/lib/perl5/5.24.0/Compress/Zlib.pm
+/usr/lib/perl5/5.24.0/Config/*
+/usr/lib/perl5/5.24.0/DB.pm
+/usr/lib/perl5/5.24.0/DBM_Filter.pm
+/usr/lib/perl5/5.24.0/DBM_Filter/*
+/usr/lib/perl5/5.24.0/Devel/SelfStubber.pm
+/usr/lib/perl5/5.24.0/Digest.pm
+/usr/lib/perl5/5.24.0/Digest/base.pm
+/usr/lib/perl5/5.24.0/Digest/file.pm
+/usr/lib/perl5/5.24.0/DirHandle.pm
+/usr/lib/perl5/5.24.0/Dumpvalue.pm
+/usr/lib/perl5/5.24.0/Encode/*
+/usr/lib/perl5/5.24.0/English.pm
+/usr/lib/perl5/5.24.0/Env.pm
+/usr/lib/perl5/5.24.0/Exporter.pm
+/usr/lib/perl5/5.24.0/Exporter/Heavy.pm
+/usr/lib/perl5/5.24.0/ExtUtils/*
+/usr/lib/perl5/5.24.0/Fatal.pm
+/usr/lib/perl5/5.24.0/File/*
+/usr/lib/perl5/5.24.0/FileCache.pm
+/usr/lib/perl5/5.24.0/FileHandle.pm
+/usr/lib/perl5/5.24.0/Filter/Simple.pm
+/usr/lib/perl5/5.24.0/FindBin.pm
+/usr/lib/perl5/5.24.0/Getopt/Long.pm
+/usr/lib/perl5/5.24.0/Getopt/Std.pm
+/usr/lib/perl5/5.24.0/HTTP/Tiny.pm
+/usr/lib/perl5/5.24.0/I18N/*
+/usr/lib/perl5/5.24.0/IO/*
+/usr/lib/perl5/5.24.0/IPC/*
+/usr/lib/perl5/5.24.0/JSON/PP.pm
+/usr/lib/perl5/5.24.0/JSON/PP/Boolean.pm
+/usr/lib/perl5/5.24.0/Locale/*
+/usr/lib/perl5/5.24.0/Math/*
+/usr/lib/perl5/5.24.0/Memoize.pm
+/usr/lib/perl5/5.24.0/Memoize/*
+/usr/lib/perl5/5.24.0/Module/*
+/usr/lib/perl5/5.24.0/NEXT.pm
+/usr/lib/perl5/5.24.0/Net/*
+/usr/lib/perl5/5.24.0/Params/Check.pm
+/usr/lib/perl5/5.24.0/Parse/CPAN/Meta.pm
+/usr/lib/perl5/5.24.0/Perl/OSType.pm
+/usr/lib/perl5/5.24.0/PerlIO.pm
+/usr/lib/perl5/5.24.0/PerlIO/via/QuotedPrint.pm
+/usr/lib/perl5/5.24.0/Pod/*
+/usr/lib/perl5/5.24.0/Safe.pm
+/usr/lib/perl5/5.24.0/Search/Dict.pm
+/usr/lib/perl5/5.24.0/SelectSaver.pm
+/usr/lib/perl5/5.24.0/SelfLoader.pm
+/usr/lib/perl5/5.24.0/Symbol.pm
+/usr/lib/perl5/5.24.0/TAP/*
+/usr/lib/perl5/5.24.0/Term/*
+/usr/lib/perl5/5.24.0/Test.pm
+# /usr/lib/perl5/5.24.0/Test/*
+/usr/lib/perl5/5.24.0/Test/Harness.pm
+/usr/lib/perl5/5.24.0/Text/*
+/usr/lib/perl5/5.24.0/Thread.pm
+/usr/lib/perl5/5.24.0/Thread/*
+/usr/lib/perl5/5.24.0/Tie/*
+/usr/lib/perl5/5.24.0/Time/*
+/usr/lib/perl5/5.24.0/UNIVERSAL.pm
+/usr/lib/perl5/5.24.0/Unicode/*
+/usr/lib/perl5/5.24.0/User/*
+/usr/lib/perl5/5.24.0/XSLoader.pm
+/usr/lib/perl5/5.24.0/_charnames.pm
+/usr/lib/perl5/5.24.0/autodie.pm
+/usr/lib/perl5/5.24.0/autodie/*
+/usr/lib/perl5/5.24.0/autouse.pm
+/usr/lib/perl5/5.24.0/base.pm
+/usr/lib/perl5/5.24.0/bigint.pm
+/usr/lib/perl5/5.24.0/bignum.pm
+/usr/lib/perl5/5.24.0/bigrat.pm
+/usr/lib/perl5/5.24.0/blib.pm
+/usr/lib/perl5/5.24.0/bytes.pm
+/usr/lib/perl5/5.24.0/bytes_heavy.pl
+/usr/lib/perl5/5.24.0/charnames.pm
+/usr/lib/perl5/5.24.0/constant.pm
+/usr/lib/perl5/5.24.0/deprecate.pm
+/usr/lib/perl5/5.24.0/diagnostics.pm
+/usr/lib/perl5/5.24.0/dumpvar.pl
+/usr/lib/perl5/5.24.0/encoding/warnings.pm
+/usr/lib/perl5/5.24.0/experimental.pm
+/usr/lib/perl5/5.24.0/feature.pm
+/usr/lib/perl5/5.24.0/fields.pm
+/usr/lib/perl5/5.24.0/filetest.pm
+/usr/lib/perl5/5.24.0/if.pm
+/usr/lib/perl5/5.24.0/integer.pm
+/usr/lib/perl5/5.24.0/less.pm
+/usr/lib/perl5/5.24.0/locale.pm
+/usr/lib/perl5/5.24.0/meta_notation.pm
+/usr/lib/perl5/5.24.0/open.pm
+/usr/lib/perl5/5.24.0/overload.pm
+/usr/lib/perl5/5.24.0/overload/numbers.pm
+/usr/lib/perl5/5.24.0/overloading.pm
+/usr/lib/perl5/5.24.0/parent.pm
+/usr/lib/perl5/5.24.0/perl5db.pl
+/usr/lib/perl5/5.24.0/perlfaq.pm
+/usr/lib/perl5/5.24.0/pod/*
+/usr/lib/perl5/5.24.0/sigtrap.pm
+/usr/lib/perl5/5.24.0/sort.pm
+/usr/lib/perl5/5.24.0/strict.pm
+/usr/lib/perl5/5.24.0/subs.pm
+/usr/lib/perl5/5.24.0/unicore/*
+/usr/lib/perl5/5.24.0/utf8.pm
+/usr/lib/perl5/5.24.0/utf8_heavy.pl
+/usr/lib/perl5/5.24.0/vars.pm
+/usr/lib/perl5/5.24.0/version.pm
+/usr/lib/perl5/5.24.0/version.pod
+/usr/lib/perl5/5.24.0/version/Internals.pod
+/usr/lib/perl5/5.24.0/version/regex.pm
+/usr/lib/perl5/5.24.0/vmsish.pm
+/usr/lib/perl5/5.24.0/warnings.pm
+/usr/lib/perl5/5.24.0/warnings/register.pm
+/usr/lib/perl5/5.24.0/x86_64-linux/*
+/usr/lib/perl5/5.24.0/x86_64-linux/.packlist
 /usr/share/man/man1/*
 /usr/share/man/man3/App::*
 /usr/share/man/man3/Archive::*
@@ -421,20 +421,20 @@ LC_ALL=C make test
 
 
 # Files included in perl-Test-Simple package
-%exclude /usr/lib/perl5/5.22.0/Test/Builder.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Builder/IO/Scalar.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Builder/Module.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Builder/Tester.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Builder/Tester/Color.pm
-%exclude /usr/lib/perl5/5.22.0/Test/More.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Simple.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Tester/Capture.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Tester/CaptureRunner.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Tester/Delegate.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Tester.pm
-%exclude /usr/lib/perl5/5.22.0/Test/Tutorial.pod
-%exclude /usr/lib/perl5/5.22.0/Test/use/ok.pm
-%exclude /usr/lib/perl5/5.22.0/ok.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/IO/Scalar.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/Module.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/Tester.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/Tester/Color.pm
+%exclude /usr/lib/perl5/5.24.0/Test/More.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Simple.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester/Capture.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester/CaptureRunner.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester/Delegate.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tutorial.pod
+%exclude /usr/lib/perl5/5.24.0/Test/use/ok.pm
+%exclude /usr/lib/perl5/5.24.0/ok.pm
 %exclude /usr/share/man/man3/Test::Builder.3
 %exclude /usr/share/man/man3/Test::Builder::Module.3
 %exclude /usr/share/man/man3/Test::Builder::IO::Scalar.3
