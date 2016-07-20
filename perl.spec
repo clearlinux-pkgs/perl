@@ -87,6 +87,14 @@ prototyping and large scale development projects.
 
 %build
 
+
+export CFLAGS="${flags/-fPIE -pie}"
+export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -flto"
+export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec"
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+
+
 ./Configure -d -e -Dprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3'
 
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
