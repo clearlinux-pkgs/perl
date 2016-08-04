@@ -3,6 +3,7 @@ Version:       5.24.0
 Release:       26
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
+Patch0:        cve-2016-1238.patch
 Summary:       The perl interpreter
 Group:         Development
 License:       GPL-1.0+ GPL-1.0 bzip2-1.0.6 Artistic-1.0-Perl GPL-2.0+ MIT BSD-3-Clause
@@ -82,18 +83,15 @@ Perl 5 runs on over 100 platforms from portables to mainframes and is suitable f
 prototyping and large scale development projects.
 
 %prep
-
 %setup -q
+%patch0 -p1
 
 %build
-
-
 export CFLAGS="${flags/-fPIE -pie}"
 export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -flto"
 export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec"
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
-
 
 ./Configure -d -e -Dprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3'
 
