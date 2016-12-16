@@ -87,8 +87,7 @@ prototyping and large scale development projects.
 %patch0 -p1
 
 %build
-export CFLAGS="${flags/-fPIE -pie}"
-export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -flto"
+export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec"
 export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec"
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -102,6 +101,8 @@ sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
 sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
+
+sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec\'/g" config.sh
 
 make  %{?_smp_mflags}
 
