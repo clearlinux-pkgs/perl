@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.24.0
-Release:       28
+Release:       29
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
 Patch0:        cve-2016-1238.patch
@@ -81,6 +81,18 @@ Requires: perl-Test-Simple
 Perl 5 is a highly capable, feature-rich programming language with over 27 years of development.
 Perl 5 runs on over 100 platforms from portables to mainframes and is suitable for both rapid 
 prototyping and large scale development projects.
+
+
+
+%package doc
+Summary: doc components for the perl package.
+Group: Documentation
+
+%description doc
+doc components for the perl package.
+
+
+
 
 %prep
 %setup -q
@@ -279,6 +291,23 @@ LC_ALL=C make test ||:
 /usr/lib/perl5/5.24.0/warnings/register.pm
 /usr/lib/perl5/5.24.0/x86_64-linux/*
 /usr/lib/perl5/5.24.0/x86_64-linux/.packlist
+# Files included in perl-Test-Simple package
+%exclude /usr/lib/perl5/5.24.0/Test/Builder.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/IO/Scalar.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/Module.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/Tester.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Builder/Tester/Color.pm
+%exclude /usr/lib/perl5/5.24.0/Test/More.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Simple.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester/Capture.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester/CaptureRunner.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester/Delegate.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tester.pm
+%exclude /usr/lib/perl5/5.24.0/Test/Tutorial.pod
+%exclude /usr/lib/perl5/5.24.0/Test/use/ok.pm
+%exclude /usr/lib/perl5/5.24.0/ok.pm
+
+%files doc
 /usr/share/man/man1/*
 /usr/share/man/man3/App::*
 /usr/share/man/man3/Archive::*
@@ -428,20 +457,6 @@ LC_ALL=C make test ||:
 
 
 # Files included in perl-Test-Simple package
-%exclude /usr/lib/perl5/5.24.0/Test/Builder.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Builder/IO/Scalar.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Builder/Module.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Builder/Tester.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Builder/Tester/Color.pm
-%exclude /usr/lib/perl5/5.24.0/Test/More.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Simple.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Tester/Capture.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Tester/CaptureRunner.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Tester/Delegate.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Tester.pm
-%exclude /usr/lib/perl5/5.24.0/Test/Tutorial.pod
-%exclude /usr/lib/perl5/5.24.0/Test/use/ok.pm
-%exclude /usr/lib/perl5/5.24.0/ok.pm
 %exclude /usr/share/man/man3/Test::Builder.3
 %exclude /usr/share/man/man3/Test::Builder::Module.3
 %exclude /usr/share/man/man3/Test::Builder::IO::Scalar.3
