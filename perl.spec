@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.24.0
-Release:       29
+Release:       30
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
 Patch0:        cve-2016-1238.patch
@@ -104,7 +104,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 
-./Configure -d -e -Dprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3'
+./Configure -d -e -Dprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads
 
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
 sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
@@ -289,8 +289,8 @@ LC_ALL=C make test ||:
 /usr/lib/perl5/5.24.0/vmsish.pm
 /usr/lib/perl5/5.24.0/warnings.pm
 /usr/lib/perl5/5.24.0/warnings/register.pm
-/usr/lib/perl5/5.24.0/x86_64-linux/*
-/usr/lib/perl5/5.24.0/x86_64-linux/.packlist
+/usr/lib/perl5/5.24.0/x86_64-linux*/*
+/usr/lib/perl5/5.24.0/x86_64-linux*/.packlist
 # Files included in perl-Test-Simple package
 %exclude /usr/lib/perl5/5.24.0/Test/Builder.pm
 %exclude /usr/lib/perl5/5.24.0/Test/Builder/IO/Scalar.pm
