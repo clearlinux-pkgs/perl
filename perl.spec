@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.24.0
-Release:       30
+Release:       31
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
 Patch0:        cve-2016-1238.patch
