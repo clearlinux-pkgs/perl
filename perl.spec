@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.24.0
-Release:       33
+Release:       34
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
 Patch0:        cve-2016-1238.patch
@@ -75,7 +75,7 @@ Provides: perl(RRDs) perl(Win32API::File)  perl(Win32::Process)
 
 
 Requires: perl-Test-Simple
-#Requires: perl-Math-BigInt-GMP
+Requires: perl-Math-BigInt-GMP
 Requires: perl-Math-BigInt
 
 %description
@@ -480,3 +480,4 @@ LC_ALL=C make test ||:
 %exclude /usr/share/man/man3/Math::BigInt::CalcEmu.3
 %exclude /usr/share/man/man3/Math::BigInt.3
 %exclude /usr/share/man/man3/Math::BigInt::Calc.3
+%exclude /usr/share/man/man3/Math::BigInt::FastCalc.3
