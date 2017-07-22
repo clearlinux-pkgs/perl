@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.26.0
-Release:       36
+Release:       37
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.26.0.tar.gz
 Summary:       The perl interpreter
@@ -77,7 +77,6 @@ Provides: perl(RRDs) perl(Win32API::File)  perl(Win32::Process)
 
 Requires: perl-Test-Simple
 Requires: perl-Math-BigInt-GMP
-Requires: perl-Math-BigInt
 
 %description
 Perl 5 is a highly capable, feature-rich programming language with over 27 years of development.
@@ -212,8 +211,8 @@ rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.26.0/i686-linux/CORE/libperl.a
 /usr/lib/perl5/5.26.0/Locale/*
 /usr/lib/perl5/5.26.0/Math/Trig.pm
 /usr/lib/perl5/5.26.0/Math/Complex.pm
-%exclude /usr/lib/perl5/5.26.0/Math/BigInt*
-%exclude /usr/lib/perl5/5.26.0/Math/BigFloat*
+/usr/lib/perl5/5.26.0/Math/BigInt*
+/usr/lib/perl5/5.26.0/Math/BigFloat*
 /usr/lib/perl5/5.26.0/Math/BigRat*
 /usr/lib/perl5/5.26.0/Memoize.pm
 /usr/lib/perl5/5.26.0/Memoize/*
@@ -485,10 +484,3 @@ rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.26.0/i686-linux/CORE/libperl.a
 %exclude /usr/share/man/man3/Test::use::ok.3
 %exclude /usr/share/man/man3/ok.3
 %exclude /usr/share/man/man3/Test2*
-#bigint
-%exclude /usr/share/man/man3/Math::BigFloat.3
-%exclude /usr/share/man/man3/Math::BigInt::CalcEmu.3
-%exclude /usr/share/man/man3/Math::BigInt.3
-%exclude /usr/share/man/man3/Math::BigInt::Calc.3
-%exclude /usr/share/man/man3/Math::BigInt::FastCalc.3
-%exclude /usr/share/man/man3/Math::BigInt::Lib.3 
