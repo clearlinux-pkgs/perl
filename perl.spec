@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.24.0
-Release:       32
+Release:       33
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
 Patch0:        cve-2016-1238.patch
@@ -75,7 +75,8 @@ Provides: perl(RRDs) perl(Win32API::File)  perl(Win32::Process)
 
 
 Requires: perl-Test-Simple
-
+#Requires: perl-Math-BigInt-GMP
+Requires: perl-Math-BigInt
 
 %description
 Perl 5 is a highly capable, feature-rich programming language with over 27 years of development.
@@ -99,8 +100,8 @@ doc components for the perl package.
 %patch0 -p1
 
 %build
-export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec"
-export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec"
+export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4"
+export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4"
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 
@@ -114,7 +115,7 @@ sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
 sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 
-sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec\'/g" config.sh
+sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 \'/g" config.sh
 
 make  %{?_smp_mflags}
 
@@ -209,7 +210,11 @@ LC_ALL=C make test ||:
 /usr/lib/perl5/5.24.0/JSON/PP.pm
 /usr/lib/perl5/5.24.0/JSON/PP/Boolean.pm
 /usr/lib/perl5/5.24.0/Locale/*
-/usr/lib/perl5/5.24.0/Math/*
+/usr/lib/perl5/5.24.0/Math/Trig.pm
+/usr/lib/perl5/5.24.0/Math/Complex.pm
+%exclude /usr/lib/perl5/5.24.0/Math/BigInt*
+%exclude /usr/lib/perl5/5.24.0/Math/BigFloat*
+/usr/lib/perl5/5.24.0/Math/BigRat*
 /usr/lib/perl5/5.24.0/Memoize.pm
 /usr/lib/perl5/5.24.0/Memoize/*
 /usr/lib/perl5/5.24.0/Module/*
@@ -470,5 +475,8 @@ LC_ALL=C make test ||:
 %exclude /usr/share/man/man3/Test::Tester::CaptureRunner.3
 %exclude /usr/share/man/man3/Test::use::ok.3
 %exclude /usr/share/man/man3/ok.3
-
-
+#bigint
+%exclude /usr/share/man/man3/Math::BigFloat.3
+%exclude /usr/share/man/man3/Math::BigInt::CalcEmu.3
+%exclude /usr/share/man/man3/Math::BigInt.3
+%exclude /usr/share/man/man3/Math::BigInt::Calc.3
