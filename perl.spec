@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.26.0
-Release:       35
+Release:       36
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.26.0.tar.gz
 Summary:       The perl interpreter
@@ -465,9 +465,9 @@ rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.26.0/i686-linux/CORE/libperl.a
 /usr/share/man/man3/warnings.3
 /usr/share/man/man3/warnings::*
 /usr/share/man/man3/Internals.3
-/usr/share/man/man3/Test2*
-/usr/share/man/man3/Test::Builder::Formatter.3
-/usr/share/man/man3/Test::Builder::TodoDiag.3
+%exclude /usr/share/man/man3/Test2*
+%exclude /usr/share/man/man3/Test::Builder::Formatter.3
+%exclude /usr/share/man/man3/Test::Builder::TodoDiag.3
 
 
 # Files included in perl-Test-Simple package
