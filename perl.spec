@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.26.0
-Release:       34
+Release:       35
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.26.0.tar.gz
 Summary:       The perl interpreter
@@ -484,9 +484,11 @@ rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.26.0/i686-linux/CORE/libperl.a
 %exclude /usr/share/man/man3/Test::Tester::CaptureRunner.3
 %exclude /usr/share/man/man3/Test::use::ok.3
 %exclude /usr/share/man/man3/ok.3
+%exclude /usr/share/man/man3/Test2*
 #bigint
 %exclude /usr/share/man/man3/Math::BigFloat.3
 %exclude /usr/share/man/man3/Math::BigInt::CalcEmu.3
 %exclude /usr/share/man/man3/Math::BigInt.3
 %exclude /usr/share/man/man3/Math::BigInt::Calc.3
 %exclude /usr/share/man/man3/Math::BigInt::FastCalc.3
+%exclude /usr/share/man/man3/Math::BigInt::Lib.3 
