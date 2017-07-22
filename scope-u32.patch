@@ -1,0 +1,13 @@
+"type" is used a lot, by using a u32 instead of a u8 we avoid a lot of partial register use
+
+--- perl-5.24.0/scope.c~	2016-03-01 12:33:02.000000000 +0000
++++ perl-5.24.0/scope.c	2017-07-22 14:39:47.773353722 +0000
+@@ -815,7 +815,7 @@
+ 			(long)PL_savestack_ix, (long)base));
+     while (PL_savestack_ix > base) {
+ 	UV uv;
+-	U8 type;
++	U32 type;
+ 
+         SV *refsv;
+         SV **svp;
