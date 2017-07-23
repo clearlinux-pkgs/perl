@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.26.0
-Release:       37
+Release:       38
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.26.0.tar.gz
 Summary:       The perl interpreter
@@ -116,6 +116,8 @@ sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 
 sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 \'/g" config.sh
 
+sed -i "s/-fstack-protector-strong/-D_FORTIFY_SOURCE=2/g" config.sh
+
 make  %{?_smp_mflags}
 
 %install
@@ -123,7 +125,7 @@ make  %{?_smp_mflags}
 rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.26.0/i686-linux/CORE/libperl.a
 
 %check
-#LC_ALL=C make test ||:
+LC_ALL=C make test ||:
 
 %clean
 
