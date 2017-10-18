@@ -1,0 +1,24 @@
+avoid spurious binary deltas
+
+
+--- perl-5.26.1/config_h.SH~	2017-07-18 22:49:30.000000000 +0000
++++ perl-5.26.1/config_h.SH	2017-10-18 19:49:30.906031226 +0000
+@@ -44,9 +44,7 @@
+ 
+ /* Package name      : $package
+  * Source directory  : $src
+- * Configuration time: $cf_time
+  * Configured by     : $cf_by
+- * Target system     : $myuname
+  */
+ 
+ #ifndef _config_h_
+@@ -1573,7 +1571,7 @@
+  *	feature tests from Configure are generally more reliable.
+  */
+ #define OSNAME "$osname"		/**/
+-#define OSVERS "$osvers"		/**/
++#define OSVERS "4.14"		/**/
+ 
+ /* CAT2:
+  *	This macro concatenates 2 tokens together.

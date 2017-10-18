@@ -1,12 +1,14 @@
 Name:          perl
 Version:       5.26.1
-Release:       40
+Release:       41
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.26.1.tar.gz
 Summary:       The perl interpreter
 Group:         Development
 License:       GPL-1.0+ GPL-1.0 bzip2-1.0.6 Artistic-1.0-Perl GPL-2.0+ MIT BSD-3-Clause
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Patch1: config_h_delta.patch
 
 BuildRequires: groff
 BuildRequires: gdbm-dev
@@ -97,6 +99,7 @@ doc components for the perl package.
 
 %prep
 %setup -q
+%patch1 -p1
 
 %build
 export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4"
