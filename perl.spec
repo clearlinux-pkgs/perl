@@ -1,6 +1,6 @@
 Name:          perl
 Version:       5.26.1
-Release:       44
+Release:       45
 URL:           http://perl.org
 Source0:       http://www.cpan.org/src/5.0/perl-5.26.1.tar.gz
 Summary:       The perl interpreter
