@@ -107,7 +107,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffunction-sections -fno-semantic-interposition -
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 
-./Configure -d -e -Dprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads -Duseshrplib -Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"'
+./Configure -d -e -Dprefix=/usr -Dsiteprefix=/usr/local -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads -Duseshrplib -Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"'
 
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
 sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
