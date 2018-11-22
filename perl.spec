@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 rm -f $RPM_BUILD_ROOT/usr/lib*/perl5/5.28.0/i686-linux/CORE/libperl.a
 
 %check
-#LC_ALL=C make test ||:
+LC_ALL=C make test ||:
 
 %clean
 
