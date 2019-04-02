@@ -9,6 +9,8 @@ License:       GPL-1.0+ GPL-1.0 bzip2-1.0.6 Artistic-1.0-Perl GPL-2.0+ MIT BSD-3
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Patch1: config_h_delta.patch
+Patch2: 0001-Add-perlbench-for-pgo-optimization.patch
+Patch3: 0001-Add-option-for-pgo-profiling-test-with-perlbench.patch
 
 BuildRequires: groff
 BuildRequires: gdbm-dev
@@ -100,6 +102,8 @@ doc components for the perl package.
 %prep
 %setup -q
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4"
@@ -117,10 +121,26 @@ sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
 sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 
-sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 \'/g" config.sh
-
+sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-generate -fprofile-dir=\/var\/tmp\/pgo \'/g" config.sh
+sed -i   "s/lddlflags=.*/lddlflags=\'\-shared -O2 -D_FORTIFY_SOURCE=2 -fprofile-generate -fprofile-dir=\/var\/tmp\/pgo \'/g" config.sh
+sed -i   "s/ldflags=.*/ldflags=\'\-D_FORTIFY_SOURCE=2 -fprofile-generate -fprofile-dir=\/var\/tmp\/pgo \'/g" config.sh
 sed -i "s/-fstack-protector-strong/-D_FORTIFY_SOURCE=2/g" config.sh
 
+make  %{?_smp_mflags}
+
+make test_pgo
+make clean
+
+./Configure -d -e -Dprefix=/usr -Dsiteprefix=/usr/local -Dvendorprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads -Duseshrplib -Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"' -Dotherlibdirs=/usr/lib/perl5/site_perl/5.28.1
+sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
+sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
+./Configure -der
+sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
+sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
+sed -i   "s/optimize=.*/optimize=\'\-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-use -fprofile-dir=\/var\/tmp\/pgo -fprofile-correction \'/g" config.sh
+sed -i   "s/lddlflags=.*/lddlflags=\'\-shared -O2 -D_FORTIFY_SOURCE=2 -fprofile-use -fprofile-dir=\/var\/tmp\/pgo -fprofile-correction \'/g" config.sh
+sed -i   "s/ldflags=.*/ldflags=\'\-D_FORTIFY_SOURCE=2 -fprofile-use -fprofile-dir=\/var\/tmp\/pgo -fprofile-correction \'/g" config.sh
+sed -i "s/-fstack-protector-strong/-D_FORTIFY_SOURCE=2/g" config.sh
 make  %{?_smp_mflags}
 
 %install
