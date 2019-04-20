@@ -128,7 +128,7 @@ sed -i "s/-fstack-protector-strong/-D_FORTIFY_SOURCE=2/g" config.sh
 
 make  %{?_smp_mflags}
 
-#make test_pgo
+make test_pgo
 make clean
 
 ./Configure -d -e -Dprefix=/usr -Dsiteprefix=/usr/local -Dvendorprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads -Duseshrplib -Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"' -Dotherlibdirs=/usr/lib/perl5/site_perl/5.28.2
