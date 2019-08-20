@@ -56,7 +56,7 @@ Provides: perl(Time::Piece) perl(threads) perl(threads::shared)
 Provides: perl(vars) perl(version) perl(warnings) perl(YAML::Any)
 
 Provides: perl(DBD::SQLite) perl(FLTK)
-Provides:  perl(Qt) perl(Qt::slots) perl(Cocoa::EventLoop)  perl(Qt::isa) perl(Irssi) perl(EV) = 4.11
+Provides:  perl(Qt) perl(Qt::slots) perl(Cocoa::EventLoop)  perl(Qt::isa)
 Provides: /opt/bin/perl
 Provides: perl(:MODULE_COMPAT_5.18.0) perl(:MODULE_COMPAT_5.20.0) perl(:MODULE_COMPAT_5.20.2) perl(:MODULE_COMPAT_5.22.0) perl(:MODULE_COMPAT_5.16.2) perl(:MODULE_COMPAT_5.28.2)
 Provides: perl(unicore::Name) perl(mtr_misc.pl)  perl(Win32::ODBC)
@@ -66,7 +66,7 @@ Provides: perl(SVN::Core) perl(SVN::Delta) perl(SVN::Ra) perl(Term::ReadKey) per
 
 # fake provides
 Provides: perl(NDBM_File) perl(Your::Module::Here) perl(VMS::Stdio) perl(bigint.pl) perl(Tk::Pod) perl(VMS::Filespec) perl(Mac::InternetConfig)
-Provides: perl(Tk) perl(Mac::BuildTools)
+Provides: perl(Mac::BuildTools)
 Provides: perl = 1:5.16.2
 Provides: perl = 1:5.18.0
 Provides: perl = 1:5.20.0
