@@ -61,7 +61,7 @@ Provides: /opt/bin/perl
 Provides: perl(:MODULE_COMPAT_5.18.0) perl(:MODULE_COMPAT_5.20.0) perl(:MODULE_COMPAT_5.20.2) perl(:MODULE_COMPAT_5.22.0) perl(:MODULE_COMPAT_5.16.2) perl(:MODULE_COMPAT_5.28.2)
 Provides: perl(unicore::Name) perl(mtr_misc.pl)  perl(Win32::ODBC)
 Provides: perl(Git::SVN::Utils) perl(Memoize) perl(Memoize::Storable) perl(SVN::Client)
-Provides: perl(SVN::Core) perl(SVN::Delta) perl(SVN::Ra) perl(Term::ReadKey) perl(Curses)
+Provides: perl(SVN::Core) perl(SVN::Delta) perl(SVN::Ra) perl(Term::ReadKey)
 
 
 # fake provides
