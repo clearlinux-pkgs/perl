@@ -1,0 +1,28 @@
+From 1d731e8e3b4df4555635bd642792717d1668e6ad Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Mon, 16 Sep 2019 17:15:48 -0700
+Subject: [PATCH] Search vendorlib for prior versions
+
+By default, Config searches sitelib for previous installed versions of
+Perl to optionally support. That won't exist in a mock chroot, so point
+to our vendorlib (e.g. /usr/lib/perl5/vendor_perl) instead.
+---
+ Configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Configure b/Configure
+index 684a9c0..843beb7 100755
+--- a/Configure
++++ b/Configure
+@@ -7619,7 +7619,7 @@ $cat > getverlist <<EOPL
+ use File::Basename;
+ \$api_versionstring = "$api_versionstring";
+ \$version = "$version";
+-\$stem = "$sitelib_stem";
++\$stem = "/usr/lib/perl5/vendor_perl";
+ \$archname = "$archname";
+ EOPL
+ 	$cat >> getverlist <<'EOPL'
+-- 
+2.23.0
+

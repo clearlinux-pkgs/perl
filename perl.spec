@@ -11,6 +11,7 @@ BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Patch1: config_h_delta.patch
 Patch2: 0001-Add-perlbench-for-pgo-optimization.patch
 Patch3: 0001-Add-option-for-pgo-profiling-test-with-perlbench.patch
+Patch4: Search-vendorlib-for-prior-versions.patch
 
 BuildRequires: groff
 BuildRequires: gdbm-dev
@@ -104,6 +105,7 @@ doc components for the perl package.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 export CFLAGS="$CFLAGS -O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4"
@@ -131,7 +133,7 @@ make  %{?_smp_mflags}
 make test_pgo
 make clean
 
-./Configure -d -e -Dprefix=/usr -Dsiteprefix=/usr/local -Dvendorprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads -Duseshrplib -Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"' -Dotherlibdirs=/usr/lib/perl5/site_perl/5.28.2
+./Configure -d -e -Dprefix=/usr -Dsiteprefix=/usr/local -Dvendorprefix=/usr -Dinstallman1dir='/usr/share/man/man1' -Dinstallman3dir='/usr/share/man/man3' -Dusethreads -Duseshrplib -Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"'
 sed -i sqman1dir=\'\'qman1dir=\'/usr/share/man/man1\'q config.sh
 sed -i sqman3dir=\'\'qman3dir=\'/usr/share/man/man3\'q config.sh
 ./Configure -der
