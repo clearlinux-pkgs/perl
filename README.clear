@@ -1,1 +1,1 @@
-Make sure to re-autospec gitolite and subversion whenever perl is upgraded to a new release.
+Make sure to re-autospec gitolite whenever perl is upgraded to a new release.

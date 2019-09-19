@@ -1,0 +1,11 @@
+./Configure -d -e \
+	-Dprefix=/usr \
+	-Dsiteprefix=/usr/local \
+	-Dvendorprefix=/usr \
+	-Dinstallman1dir='/usr/share/man/man1' \
+	-Dinstallman3dir='/usr/share/man/man3' \
+	-Dman1dir='/usr/share/man/man1' \
+	-Dman3dir='/usr/share/man/man3' \
+	-Dusethreads -Duseshrplib \
+	-Adefine:d_procselfexe -Adefine:procselfexe='"/proc/self/exe"'
+./Configure -der
