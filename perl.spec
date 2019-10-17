@@ -4,14 +4,14 @@
 #
 Name     : perl
 Version  : 5.28.2
-Release  : 61
+Release  : 62
 URL      : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Source0  : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Summary  : The Perl 5 language interpreter
 Group    : Development/Tools
 License  : Artistic-1.0-Perl Artistic-2.0 BSD-3-Clause GPL-1.0 GPL-1.0+ GPL-2.0 GPL-2.0+ MIT bzip2-1.0.6
 Requires: perl-bin = %{version}-%{release}
-Requires: perl-lib = %{version}-%{release}
+Requires: perl-data = %{version}-%{release}
 Requires: perl-license = %{version}-%{release}
 Requires: perl-man = %{version}-%{release}
 Requires: perl-Math-BigInt-GMP
@@ -37,31 +37,31 @@ prototyping and large scale development projects.
 %package bin
 Summary: bin components for the perl package.
 Group: Binaries
+Requires: perl-data = %{version}-%{release}
 Requires: perl-license = %{version}-%{release}
 
 %description bin
 bin components for the perl package.
 
 
+%package data
+Summary: data components for the perl package.
+Group: Data
+
+%description data
+data components for the perl package.
+
+
 %package dev
 Summary: dev components for the perl package.
 Group: Development
-Requires: perl-lib = %{version}-%{release}
 Requires: perl-bin = %{version}-%{release}
+Requires: perl-data = %{version}-%{release}
 Provides: perl-devel = %{version}-%{release}
 Requires: perl = %{version}-%{release}
 
 %description dev
 dev components for the perl package.
-
-
-%package lib
-Summary: lib components for the perl package.
-Group: Libraries
-Requires: perl-license = %{version}-%{release}
-
-%description lib
-lib components for the perl package.
 
 
 %package license
@@ -105,7 +105,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571273868
+export SOURCE_DATE_EPOCH=1571338087
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -125,7 +125,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 LC_ALL=C make test ||:
 
 %install
-export SOURCE_DATE_EPOCH=1571273868
+export SOURCE_DATE_EPOCH=1571338087
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.28.2/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
@@ -167,6 +167,43 @@ rm -f %{buildroot}/usr/share/man/man3/Test::Tutorial.3
 rm -f %{buildroot}/usr/share/man/man3/Test::use::ok.3
 
 %files
+%defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/corelist
+/usr/bin/cpan
+/usr/bin/enc2xs
+/usr/bin/encguess
+/usr/bin/h2ph
+/usr/bin/h2xs
+/usr/bin/instmodsh
+/usr/bin/json_pp
+/usr/bin/libnetcfg
+/usr/bin/perl
+/usr/bin/perl5.28.2
+/usr/bin/perlbug
+/usr/bin/perldoc
+/usr/bin/perlivp
+/usr/bin/perlthanks
+/usr/bin/piconv
+/usr/bin/pl2pm
+/usr/bin/pod2html
+/usr/bin/pod2man
+/usr/bin/pod2text
+/usr/bin/pod2usage
+/usr/bin/podchecker
+/usr/bin/podselect
+/usr/bin/prove
+/usr/bin/ptar
+/usr/bin/ptardiff
+/usr/bin/ptargrep
+/usr/bin/shasum
+/usr/bin/splain
+/usr/bin/xsubpp
+/usr/bin/zipdetails
+
+%files data
 %defattr(-,root,root,-)
 /usr/lib/perl5/5.28.2/AnyDBM_File.pm
 /usr/lib/perl5/5.28.2/App/Cpan.pm
@@ -1556,6 +1593,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test::use::ok.3
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/iperlsys.h
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/keywords.h
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/l1_char_class_tab.h
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/libperl.so
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/malloc_ctl.h
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/metaconfig.h
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/mg.h
@@ -1708,6 +1746,58 @@ rm -f %{buildroot}/usr/share/man/man3/Test::use::ok.3
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/Unicode/Normalize.pm
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/arybase.pm
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/attributes.pm
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/B/B.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Compress/Raw/Bzip2/Bzip2.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Compress/Raw/Zlib/Zlib.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Cwd/Cwd.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Data/Dumper/Dumper.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Devel/Peek/Peek.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Digest/SHA/SHA.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Byte/Byte.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/CN/CN.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/EBCDIC/EBCDIC.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Encode.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/JP/JP.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/KR/KR.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Symbol/Symbol.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/TW/TW.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Unicode/Unicode.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Fcntl/Fcntl.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/File/DosGlob/DosGlob.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/File/Glob/Glob.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Filter/Util/Call/Call.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/GDBM_File/GDBM_File.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Hash/Util/FieldHash/FieldHash.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Hash/Util/Util.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/I18N/Langinfo/Langinfo.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/IO/IO.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/IPC/SysV/SysV.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/List/Util/Util.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/MIME/Base64/Base64.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Math/BigInt/FastCalc/FastCalc.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Opcode/Opcode.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/POSIX/POSIX.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/encoding/encoding.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/mmap/mmap.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/scalar/scalar.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/via/via.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/SDBM_File/SDBM_File.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Socket/Socket.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Storable/Storable.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Sys/Hostname/Hostname.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Sys/Syslog/Syslog.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Tie/Hash/NamedCapture/NamedCapture.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Time/HiRes/HiRes.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Time/Piece/Piece.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Unicode/Collate/Collate.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Unicode/Normalize/Normalize.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/arybase/arybase.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/attributes/attributes.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/mro/mro.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/re/re.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/threads/shared/shared.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/threads/threads.so
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/encoding.pm
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/lib.pm
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/mro.pm
@@ -1715,40 +1805,6 @@ rm -f %{buildroot}/usr/share/man/man3/Test::use::ok.3
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/re.pm
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/threads.pm
 /usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/threads/shared.pm
-
-%files bin
-%defattr(-,root,root,-)
-/usr/bin/corelist
-/usr/bin/cpan
-/usr/bin/enc2xs
-/usr/bin/encguess
-/usr/bin/h2ph
-/usr/bin/h2xs
-/usr/bin/instmodsh
-/usr/bin/json_pp
-/usr/bin/libnetcfg
-/usr/bin/perl
-/usr/bin/perl5.28.2
-/usr/bin/perlbug
-/usr/bin/perldoc
-/usr/bin/perlivp
-/usr/bin/perlthanks
-/usr/bin/piconv
-/usr/bin/pl2pm
-/usr/bin/pod2html
-/usr/bin/pod2man
-/usr/bin/pod2text
-/usr/bin/pod2usage
-/usr/bin/podchecker
-/usr/bin/podselect
-/usr/bin/prove
-/usr/bin/ptar
-/usr/bin/ptardiff
-/usr/bin/ptargrep
-/usr/bin/shasum
-/usr/bin/splain
-/usr/bin/xsubpp
-/usr/bin/zipdetails
 
 %files dev
 %defattr(-,root,root,-)
@@ -2268,62 +2324,6 @@ rm -f %{buildroot}/usr/share/man/man3/Test::use::ok.3
 /usr/share/man/man3/vmsish.3
 /usr/share/man/man3/warnings.3
 /usr/share/man/man3/warnings::register.3
-
-%files lib
-%defattr(-,root,root,-)
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/CORE/libperl.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/B/B.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Compress/Raw/Bzip2/Bzip2.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Compress/Raw/Zlib/Zlib.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Cwd/Cwd.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Data/Dumper/Dumper.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Devel/Peek/Peek.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Digest/SHA/SHA.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Byte/Byte.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/CN/CN.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/EBCDIC/EBCDIC.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Encode.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/JP/JP.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/KR/KR.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Symbol/Symbol.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/TW/TW.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Encode/Unicode/Unicode.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Fcntl/Fcntl.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/File/DosGlob/DosGlob.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/File/Glob/Glob.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Filter/Util/Call/Call.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/GDBM_File/GDBM_File.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Hash/Util/FieldHash/FieldHash.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Hash/Util/Util.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/I18N/Langinfo/Langinfo.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/IO/IO.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/IPC/SysV/SysV.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/List/Util/Util.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/MIME/Base64/Base64.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Math/BigInt/FastCalc/FastCalc.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Opcode/Opcode.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/POSIX/POSIX.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/encoding/encoding.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/mmap/mmap.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/scalar/scalar.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/PerlIO/via/via.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/SDBM_File/SDBM_File.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Socket/Socket.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Storable/Storable.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Sys/Hostname/Hostname.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Sys/Syslog/Syslog.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Tie/Hash/NamedCapture/NamedCapture.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Time/HiRes/HiRes.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Time/Piece/Piece.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Unicode/Collate/Collate.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/Unicode/Normalize/Normalize.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/arybase/arybase.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/attributes/attributes.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/mro/mro.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/re/re.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/threads/shared/shared.so
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/threads/threads.so
 
 %files license
 %defattr(0644,root,root,0755)
