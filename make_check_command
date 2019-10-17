@@ -1,1 +1,6 @@
-LC_ALL=C make test ||:
+JOBS=1
+JOBS_ARG="%{?_smp_mflags}"
+if test -n "$JOBS_ARG"; then
+  JOBS="${JOBS_ARG#-j}"
+fi
+LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
