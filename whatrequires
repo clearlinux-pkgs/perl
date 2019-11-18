@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
+ParaView
 Thunar
 VTK
 bind-utils
@@ -35,6 +36,7 @@ lokalize
 mxnet
 otp
 parted
+pidgin-sipe
 pmix
 supertuxkart
 syntax-highlighting
