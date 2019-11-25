@@ -1,5 +1,7 @@
 -d
 -e
+-r
+-s
 -Dprefix=/usr
 -Dsiteprefix=/usr/local
 -Dvendorprefix=/usr
@@ -11,3 +13,8 @@
 -Duseshrplib
 -Adefine:d_procselfexe
 -Adefine:procselfexe='"/proc/self/exe"'
+-Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo "
+-Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")"
+-Adefine:ccflags="$CFLAGS"
+-Adefine:ldflags="$LDFLAGS"
+-Adefine:lddflags="$LDFLAGS"

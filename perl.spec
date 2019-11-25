@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.28.2
-Release  : 68
+Release  : 70
 URL      : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Source0  : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -91,11 +91,14 @@ cd %{_builddir}/perl-5.28.2
 %patch6 -p1
 
 %build
+## build_prepend content
+export PERL_CANARY_STABILITY_NOPROMPT=1
+## build_prepend end
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574111299
+export SOURCE_DATE_EPOCH=1574727151
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -116,6 +119,8 @@ export CXXFLAGS_USE="$CXXFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofil
 export LDFLAGS_USE="$LDFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-correction "
 CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GENERATE}" FCFLAGS="${FCFLAGS_GENERATE}" LDFLAGS="${LDFLAGS_GENERATE}" %configure --disable-static -d \
 -e \
+-r \
+-s \
 -Dprefix=/usr \
 -Dsiteprefix=/usr/local \
 -Dvendorprefix=/usr \
@@ -126,13 +131,20 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Dusethreads \
 -Duseshrplib \
 -Adefine:d_procselfexe \
--Adefine:procselfexe='"/proc/self/exe"'
+-Adefine:procselfexe='"/proc/self/exe"' \
+-Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
+-Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
+-Adefine:ccflags="$CFLAGS" \
+-Adefine:ldflags="$LDFLAGS" \
+-Adefine:lddflags="$LDFLAGS"
 make  %{?_smp_mflags}
 
 make test_pgo
 make clean
 CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS="${FCFLAGS_USE}" LDFLAGS="${LDFLAGS_USE}" %configure --disable-static -d \
 -e \
+-r \
+-s \
 -Dprefix=/usr \
 -Dsiteprefix=/usr/local \
 -Dvendorprefix=/usr \
@@ -143,23 +155,16 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Dusethreads \
 -Duseshrplib \
 -Adefine:d_procselfexe \
--Adefine:procselfexe='"/proc/self/exe"'
+-Adefine:procselfexe='"/proc/self/exe"' \
+-Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
+-Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
+-Adefine:ccflags="$CFLAGS" \
+-Adefine:ldflags="$LDFLAGS" \
+-Adefine:lddflags="$LDFLAGS"
 make  %{?_smp_mflags}
 
-%check
-export LANG=C.UTF-8
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-JOBS=1
-JOBS_ARG="%{?_smp_mflags}"
-if test -n "$JOBS_ARG"; then
-JOBS="${JOBS_ARG#-j}"
-fi
-LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
-
 %install
-export SOURCE_DATE_EPOCH=1574111299
+export SOURCE_DATE_EPOCH=1574727151
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.28.2/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
