@@ -1,7 +1,6 @@
 -d
 -e
 -r
--s
 -Dprefix=/usr
 -Dsiteprefix=/usr/local
 -Dvendorprefix=/usr
@@ -18,3 +17,4 @@
 -Adefine:ccflags="$CFLAGS"
 -Adefine:ldflags="$LDFLAGS"
 -Adefine:lddflags="$LDFLAGS"
+-U d_off64_t

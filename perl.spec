@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.28.2
-Release  : 70
+Release  : 71
 URL      : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Source0  : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -92,13 +92,15 @@ cd %{_builddir}/perl-5.28.2
 
 %build
 ## build_prepend content
+export PERL5LIB=$(find ${_builddir} -type f -name strict.pm -execdir pwd \; | head -1)
+export PERL_MM_USE_DEFAULT=1
 export PERL_CANARY_STABILITY_NOPROMPT=1
 ## build_prepend end
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574727151
+export SOURCE_DATE_EPOCH=1575422996
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -120,7 +122,6 @@ export LDFLAGS_USE="$LDFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-
 CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GENERATE}" FCFLAGS="${FCFLAGS_GENERATE}" LDFLAGS="${LDFLAGS_GENERATE}" %configure --disable-static -d \
 -e \
 -r \
--s \
 -Dprefix=/usr \
 -Dsiteprefix=/usr/local \
 -Dvendorprefix=/usr \
@@ -136,7 +137,8 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
 -Adefine:ccflags="$CFLAGS" \
 -Adefine:ldflags="$LDFLAGS" \
--Adefine:lddflags="$LDFLAGS"
+-Adefine:lddflags="$LDFLAGS" \
+-U d_off64_t
 make  %{?_smp_mflags}
 
 make test_pgo
@@ -144,7 +146,6 @@ make clean
 CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS="${FCFLAGS_USE}" LDFLAGS="${LDFLAGS_USE}" %configure --disable-static -d \
 -e \
 -r \
--s \
 -Dprefix=/usr \
 -Dsiteprefix=/usr/local \
 -Dvendorprefix=/usr \
@@ -160,11 +161,12 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
 -Adefine:ccflags="$CFLAGS" \
 -Adefine:ldflags="$LDFLAGS" \
--Adefine:lddflags="$LDFLAGS"
+-Adefine:lddflags="$LDFLAGS" \
+-U d_off64_t
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1574727151
+export SOURCE_DATE_EPOCH=1575422996
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.28.2/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
