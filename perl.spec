@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.28.2
-Release  : 71
+Release  : 72
 URL      : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Source0  : http://www.cpan.org/src/5.0/perl-5.28.2.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575422996
+export SOURCE_DATE_EPOCH=1576110267
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -109,17 +109,7 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CFLAGS_GENERATE="$CFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
-export FCFLAGS_GENERATE="$FCFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
-export FFLAGS_GENERATE="$FFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
-export CXXFLAGS_GENERATE="$CXXFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
-export LDFLAGS_GENERATE="$LDFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
-export CFLAGS_USE="$CFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-correction "
-export FCFLAGS_USE="$FCFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-correction "
-export FFLAGS_USE="$FFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-correction "
-export CXXFLAGS_USE="$CXXFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-correction "
-export LDFLAGS_USE="$LDFLAGS -fprofile-use -fprofile-dir=/var/tmp/pgo -fprofile-correction "
-CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GENERATE}" FCFLAGS="${FCFLAGS_GENERATE}" LDFLAGS="${LDFLAGS_GENERATE}" %configure --disable-static -d \
+%configure --disable-static -d \
 -e \
 -r \
 -Dprefix=/usr \
@@ -133,40 +123,31 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Duseshrplib \
 -Adefine:d_procselfexe \
 -Adefine:procselfexe='"/proc/self/exe"' \
--Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
--Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
 -Adefine:ccflags="$CFLAGS" \
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t
 make  %{?_smp_mflags}
 
-make test_pgo
-make clean
-CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS="${FCFLAGS_USE}" LDFLAGS="${LDFLAGS_USE}" %configure --disable-static -d \
--e \
--r \
--Dprefix=/usr \
--Dsiteprefix=/usr/local \
--Dvendorprefix=/usr \
--Dinstallman1dir='/usr/share/man/man1' \
--Dinstallman3dir='/usr/share/man/man3' \
--Dman1dir='/usr/share/man/man1' \
--Dman3dir='/usr/share/man/man3' \
--Dusethreads \
--Duseshrplib \
--Adefine:d_procselfexe \
--Adefine:procselfexe='"/proc/self/exe"' \
--Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
--Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
--Adefine:ccflags="$CFLAGS" \
--Adefine:ldflags="$LDFLAGS" \
--Adefine:lddflags="$LDFLAGS" \
--U d_off64_t
-make  %{?_smp_mflags}
+%check
+export LANG=C.UTF-8
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+JOBS=1
+
+JOBS_ARG="%{?_smp_mflags}"
+
+if test -n "$JOBS_ARG"; then
+
+  JOBS="${JOBS_ARG#-j}"
+
+fi
+
+LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1575422996
+export SOURCE_DATE_EPOCH=1576110267
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.28.2/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
