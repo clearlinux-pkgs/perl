@@ -4,3 +4,4 @@ config_h_delta.patch
 Search-vendorlib-for-prior-versions.patch
 0005-Symlink-to-Configure.patch
 0006-Ignore-unknown-options-in-configure.patch
+0007-replace-clean-with-distclean.patch
