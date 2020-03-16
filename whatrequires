@@ -2,14 +2,15 @@
 ParaView
 Thunar
 VTK
+avahi
 bind-utils
 clr-network-troubleshooter
 cmake
 compat-libical-soname2
 compat-llvm-soname6
-compat-llvm-soname7
 efitools
 exo
+gdk-pixbuf
 gegl
 gimp
 goocanvas
