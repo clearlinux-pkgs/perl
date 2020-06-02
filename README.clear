@@ -1,4 +1,4 @@
 Make sure to re-autospec gitolite whenever perl is upgraded to a new release.
 Also bump packages that link to libperl.so, such as those listed by:
-dnf repoquery --whatrequires 'libperl.so()(64bit)
+dnf repoquery --whatrequires 'libperl.so()(64bit)'
 e.g. linux-tools, subversion, openldap
