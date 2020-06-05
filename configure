@@ -18,3 +18,4 @@
 -Adefine:ldflags="$LDFLAGS"
 -Adefine:lddflags="$LDFLAGS"
 -U d_off64_t
+-Dinc_version_list="5.30.2/x86_64-linux-thread-multi 5.30.2"
