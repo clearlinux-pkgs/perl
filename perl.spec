@@ -136,8 +136,7 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Duseshrplib \
 -Adefine:d_procselfexe \
 -Adefine:procselfexe='"/proc/self/exe"' \
--Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
--Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
+-Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo -fprofile-generate -fprofile-update=atomic  " \
 -Adefine:ccflags="$CFLAGS" \
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
@@ -161,8 +160,7 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Duseshrplib \
 -Adefine:d_procselfexe \
 -Adefine:procselfexe='"/proc/self/exe"' \
--Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
--Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
+-Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo -fprofile-use -fprofile-correction " \
 -Adefine:ccflags="$CFLAGS" \
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
