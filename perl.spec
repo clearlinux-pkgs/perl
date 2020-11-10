@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.30.3
-Release  : 77
+Release  : 78
 URL      : http://www.cpan.org/src/5.0/perl-5.30.3.tar.xz
 Source0  : http://www.cpan.org/src/5.0/perl-5.30.3.tar.xz
 Summary  : The Perl 5 language interpreter
