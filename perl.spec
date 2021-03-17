@@ -4,12 +4,12 @@
 #
 Name     : perl
 Version  : 5.32.1
-Release  : 79
+Release  : 80
 URL      : https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz
 Summary  : The Perl 5 language interpreter
 Group    : Development/Tools
-License  : Artistic-1.0-Perl Artistic-2.0 BSD-3-Clause GPL-1.0 GPL-1.0+ GPL-2.0+ MIT bzip2-1.0.6
+License  : Artistic-1.0 Artistic-1.0-Perl Artistic-2.0 BSD-3-Clause GPL-1.0 GPL-1.0+ GPL-2.0+ MIT bzip2-1.0.6
 Requires: perl-bin = %{version}-%{release}
 Requires: perl-license = %{version}-%{release}
 Requires: perl-man = %{version}-%{release}
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1615997597
+export SOURCE_DATE_EPOCH=1616021997
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -142,7 +142,7 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.30.2/x86_64-linux-thread-multi 5.30.2"
+-Dinc_version_list="5.30.3/x86_64-linux-thread-multi 5.30.3"
 make  %{?_smp_mflags}
 
 make test_pgo
@@ -167,7 +167,7 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.30.2/x86_64-linux-thread-multi 5.30.2"
+-Dinc_version_list="5.30.3/x86_64-linux-thread-multi 5.30.3"
 make  %{?_smp_mflags}
 
 %check
@@ -183,12 +183,13 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1615997597
+export SOURCE_DATE_EPOCH=1616021997
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.32.1/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
 cp %{_builddir}/perl-5.32.1/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
 cp %{_builddir}/perl-5.32.1/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
+cp %{_builddir}/perl-5.32.1/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}/usr/share/man/man3/ok.3
@@ -729,6 +730,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
 /usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
+/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
 /usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
 
 %files man
