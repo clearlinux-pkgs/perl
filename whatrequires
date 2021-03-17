@@ -7,12 +7,9 @@ bind-utils
 clr-network-troubleshooter
 clucene-core
 cmake
-compat-libical-soname2
-compat-llvm-soname6
 efitools
 exo
 geeqie
-gegl
 gimp
 goocanvas
 gtk+
@@ -30,10 +27,12 @@ libdnf
 libgeotiff
 libgtop
 libical
+libxdg-basedir
 libxfce4ui
 libxfce4util
 linux-tools
 lokalize
+mc
 modsecurity
 mxnet
 otp
@@ -42,8 +41,10 @@ pidgin-sipe
 pmix
 supertuxkart
 syntax-highlighting
+telepathy-qt
 tpm2-tss
 v4l-utils
+vkd3d
 webkitgtk
 wget
 wireshark
