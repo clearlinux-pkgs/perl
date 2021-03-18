@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.32.1
-Release  : 80
+Release  : 81
 URL      : https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1616021997
+export SOURCE_DATE_EPOCH=1616080176
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -183,7 +183,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1616021997
+export SOURCE_DATE_EPOCH=1616080176
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.32.1/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
