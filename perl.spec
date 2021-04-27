@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.32.1
-Release  : 82
+Release  : 83
 URL      : https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1616105552
+export SOURCE_DATE_EPOCH=1619559267
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -183,7 +183,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1616105552
+export SOURCE_DATE_EPOCH=1619559267
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.32.1/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
@@ -193,6 +193,10 @@ cp %{_builddir}/perl-5.32.1/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/shar
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}/usr/share/man/man3/ok.3
+rm -f %{buildroot}/usr/share/man/man3/List::Util.3
+rm -f %{buildroot}/usr/share/man/man3/List::Util::XS.3
+rm -f %{buildroot}/usr/share/man/man3/Scalar::Util.3
+rm -f %{buildroot}/usr/share/man/man3/Sub::Util.3
 rm -f %{buildroot}/usr/share/man/man3/Test*
 
 %files
@@ -468,8 +472,6 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man3/Internals.3
 /usr/share/man/man3/JSON::PP.3
 /usr/share/man/man3/JSON::PP::Boolean.3
-/usr/share/man/man3/List::Util.3
-/usr/share/man/man3/List::Util::XS.3
 /usr/share/man/man3/Locale::Maketext.3
 /usr/share/man/man3/Locale::Maketext::Cookbook.3
 /usr/share/man/man3/Locale::Maketext::Guts.3
@@ -576,13 +578,11 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man3/Pod::Usage.3
 /usr/share/man/man3/SDBM_File.3
 /usr/share/man/man3/Safe.3
-/usr/share/man/man3/Scalar::Util.3
 /usr/share/man/man3/Search::Dict.3
 /usr/share/man/man3/SelectSaver.3
 /usr/share/man/man3/SelfLoader.3
 /usr/share/man/man3/Socket.3
 /usr/share/man/man3/Storable.3
-/usr/share/man/man3/Sub::Util.3
 /usr/share/man/man3/Symbol.3
 /usr/share/man/man3/Sys::Hostname.3
 /usr/share/man/man3/Sys::Syslog.3

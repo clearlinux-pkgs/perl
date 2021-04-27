@@ -1,2 +1,6 @@
 /usr/share/man/man3/ok.3
+/usr/share/man/man3/List::Util.3
+/usr/share/man/man3/List::Util::XS.3
+/usr/share/man/man3/Scalar::Util.3
+/usr/share/man/man3/Sub::Util.3
 /usr/share/man/man3/Test*

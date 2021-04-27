@@ -19,7 +19,6 @@ kdeedu-data
 kdelibs4support
 kdesdk-kioslaves
 kdoctools
-khangman
 khtml
 kjs
 ktuberling
@@ -32,6 +31,7 @@ libxfce4ui
 libxfce4util
 linux-tools
 lokalize
+lxqt-build-tools
 mc
 modsecurity
 mxnet
