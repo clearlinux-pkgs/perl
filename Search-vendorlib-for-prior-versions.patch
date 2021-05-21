@@ -10,19 +10,14 @@ to our vendorlib (e.g. /usr/lib/perl5/vendor_perl) instead.
  Configure | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Configure b/Configure
-index 684a9c0..843beb7 100755
---- a/Configure
-+++ b/Configure
-@@ -7619,7 +7619,7 @@ $cat > getverlist <<EOPL
+--- perl-5.34.0/Configure~	2021-05-04 06:52:48.000000000 +0000
++++ perl-5.34.0/Configure	2021-05-21 20:49:30.175131684 +0000
+@@ -7574,7 +7574,7 @@
  use File::Basename;
- \$api_versionstring = "$api_versionstring";
- \$version = "$version";
--\$stem = "$sitelib_stem";
-+\$stem = "/usr/lib/perl5/vendor_perl";
- \$archname = "$archname";
+ my \$api_versionstring = "$api_versionstring";
+ my \$version = "$version";
+-my \$stem = "$sitelib_stem";
++my \$stem = "/usr/lib/perl5/vendor_perl";
+ my \$archname = "$archname";
  EOPL
  	$cat >> getverlist <<'EOPL'
--- 
-2.23.0
-
