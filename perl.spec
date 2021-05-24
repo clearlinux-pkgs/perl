@@ -143,12 +143,11 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
 -Dinc_version_list="5.30.3/x86_64-linux-thread-multi 5.30.3"
-#make  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
-#make test_pgo
-#make clean
-#CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS="${FCFLAGS_USE}" LDFLAGS="${LDFLAGS_USE}" %configure --disable-static -d \
-%configure --disable-static -d \
+make test_pgo
+make clean
+CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS="${FCFLAGS_USE}" LDFLAGS="${LDFLAGS_USE}" %configure --disable-static -d \
 -e \
 -r \
 -Dprefix=/usr \
