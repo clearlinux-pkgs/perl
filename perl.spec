@@ -4,13 +4,15 @@
 #
 Name     : perl
 Version  : 5.34.0
-Release  : 88
+Release  : 89
 URL      : https://www.cpan.org/src/5.0/perl-5.34.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.34.0.tar.gz
 Summary  : The Perl 5 language interpreter
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl Artistic-2.0 BSD-3-Clause GPL-1.0 GPL-1.0+ GPL-2.0+ MIT bzip2-1.0.6
 Requires: perl-bin = %{version}-%{release}
+Requires: perl-filemap = %{version}-%{release}
+Requires: perl-lib = %{version}-%{release}
 Requires: perl-license = %{version}-%{release}
 Requires: perl-man = %{version}-%{release}
 Requires: perl-perl = %{version}-%{release}
@@ -41,6 +43,7 @@ prototyping and large scale development projects.
 Summary: bin components for the perl package.
 Group: Binaries
 Requires: perl-license = %{version}-%{release}
+Requires: perl-filemap = %{version}-%{release}
 
 %description bin
 bin components for the perl package.
@@ -49,12 +52,31 @@ bin components for the perl package.
 %package dev
 Summary: dev components for the perl package.
 Group: Development
+Requires: perl-lib = %{version}-%{release}
 Requires: perl-bin = %{version}-%{release}
 Provides: perl-devel = %{version}-%{release}
 Requires: perl = %{version}-%{release}
 
 %description dev
 dev components for the perl package.
+
+
+%package filemap
+Summary: filemap components for the perl package.
+Group: Default
+
+%description filemap
+filemap components for the perl package.
+
+
+%package lib
+Summary: lib components for the perl package.
+Group: Libraries
+Requires: perl-license = %{version}-%{release}
+Requires: perl-filemap = %{version}-%{release}
+
+%description lib
+lib components for the perl package.
 
 
 %package license
@@ -92,6 +114,9 @@ cd %{_builddir}/perl-5.34.0
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+pushd ..
+cp -a perl-5.34.0 buildavx2
+popd
 
 %build
 ## build_prepend content
@@ -103,15 +128,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619559267
+export SOURCE_DATE_EPOCH=1633966357
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CFLAGS_GENERATE="$CFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
 export FCFLAGS_GENERATE="$FCFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
 export FFLAGS_GENERATE="$FFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
@@ -170,6 +195,41 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Dinc_version_list="5.30.3/x86_64-linux-thread-multi 5.30.3"
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+## build_prepend content
+export PERL5LIB=$(find ${_builddir} -type f -name strict.pm -execdir pwd \; | head -1)
+export PERL_MM_USE_DEFAULT=1
+export PERL_CANARY_STABILITY_NOPROMPT=1
+## build_prepend end
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
+%configure --disable-static -d \
+-e \
+-r \
+-Dprefix=/usr \
+-Dsiteprefix=/usr/local \
+-Dvendorprefix=/usr \
+-Dinstallman1dir='/usr/share/man/man1' \
+-Dinstallman3dir='/usr/share/man/man3' \
+-Dman1dir='/usr/share/man/man1' \
+-Dman3dir='/usr/share/man/man3' \
+-Dusethreads \
+-Duseshrplib \
+-Adefine:d_procselfexe \
+-Adefine:procselfexe='"/proc/self/exe"' \
+-Adefine:optimize="-O3 -ffunction-sections -fno-semantic-interposition -fopt-info-vec -ffat-lto-objects -flto=4 -fprofile-dir=/var/tmp/pgo " \
+-Aappend:optimize="$(echo $LDFLAGS | grep -q fprofile.generate && echo "-fprofile-generate" || echo "-fprofile-use -fprofile-correction")" \
+-Adefine:ccflags="$CFLAGS" \
+-Adefine:ldflags="$LDFLAGS" \
+-Adefine:lddflags="$LDFLAGS" \
+-U d_off64_t \
+-Dinc_version_list="5.30.3/x86_64-linux-thread-multi 5.30.3"
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
@@ -183,13 +243,17 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1619559267
+export SOURCE_DATE_EPOCH=1633966357
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.34.0/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
 cp %{_builddir}/perl-5.34.0/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
 cp %{_builddir}/perl-5.34.0/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
 cp %{_builddir}/perl-5.34.0/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
+pushd ../buildavx2/
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+popd
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}/usr/share/man/man3/ok.3
@@ -235,6 +299,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/bin/streamzip
 /usr/bin/xsubpp
 /usr/bin/zipdetails
+/usr/share/clear/optimized-elf/bin*
 
 %files dev
 %defattr(-,root,root,-)
@@ -367,6 +432,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man3/ExtUtils::MM_MacOS.3
 /usr/share/man/man3/ExtUtils::MM_NW5.3
 /usr/share/man/man3/ExtUtils::MM_OS2.3
+/usr/share/man/man3/ExtUtils::MM_OS390.3
 /usr/share/man/man3/ExtUtils::MM_QNX.3
 /usr/share/man/man3/ExtUtils::MM_UWIN.3
 /usr/share/man/man3/ExtUtils::MM_Unix.3
@@ -384,6 +450,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man3/ExtUtils::Miniperl.3
 /usr/share/man/man3/ExtUtils::Mkbootstrap.3
 /usr/share/man/man3/ExtUtils::Mksymlists.3
+/usr/share/man/man3/ExtUtils::PL2Bat.3
 /usr/share/man/man3/ExtUtils::Packlist.3
 /usr/share/man/man3/ExtUtils::ParseXS.3
 /usr/share/man/man3/ExtUtils::ParseXS::Constants.3
@@ -726,6 +793,14 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man3/warnings.3
 /usr/share/man/man3/warnings::register.3
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-perl
+
+%files lib
+%defattr(-,root,root,-)
+/usr/share/clear/optimized-elf/other*
+
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
@@ -796,6 +871,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man1/perl5303delta.1
 /usr/share/man/man1/perl5320delta.1
 /usr/share/man/man1/perl5321delta.1
+/usr/share/man/man1/perl5340delta.1
 /usr/share/man/man1/perl561delta.1
 /usr/share/man/man1/perl56delta.1
 /usr/share/man/man1/perl581delta.1
@@ -834,6 +910,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/share/man/man1/perldeprecation.1
 /usr/share/man/man1/perldiag.1
 /usr/share/man/man1/perldoc.1
+/usr/share/man/man1/perldocstyle.1
 /usr/share/man/man1/perldos.1
 /usr/share/man/man1/perldsc.1
 /usr/share/man/man1/perldtrace.1
@@ -1110,6 +1187,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/ExtUtils/MM_MacOS.pm
 /usr/lib/perl5/5.34.0/ExtUtils/MM_NW5.pm
 /usr/lib/perl5/5.34.0/ExtUtils/MM_OS2.pm
+/usr/lib/perl5/5.34.0/ExtUtils/MM_OS390.pm
 /usr/lib/perl5/5.34.0/ExtUtils/MM_QNX.pm
 /usr/lib/perl5/5.34.0/ExtUtils/MM_UWIN.pm
 /usr/lib/perl5/5.34.0/ExtUtils/MM_Unix.pm
@@ -1128,6 +1206,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/ExtUtils/Miniperl.pm
 /usr/lib/perl5/5.34.0/ExtUtils/Mkbootstrap.pm
 /usr/lib/perl5/5.34.0/ExtUtils/Mksymlists.pm
+/usr/lib/perl5/5.34.0/ExtUtils/PL2Bat.pm
 /usr/lib/perl5/5.34.0/ExtUtils/Packlist.pm
 /usr/lib/perl5/5.34.0/ExtUtils/ParseXS.pm
 /usr/lib/perl5/5.34.0/ExtUtils/ParseXS.pod
@@ -1385,6 +1464,11 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/Test2/API/Breakage.pm
 /usr/lib/perl5/5.34.0/Test2/API/Context.pm
 /usr/lib/perl5/5.34.0/Test2/API/Instance.pm
+/usr/lib/perl5/5.34.0/Test2/API/InterceptResult.pm
+/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Event.pm
+/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Facet.pm
+/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Hub.pm
+/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Squasher.pm
 /usr/lib/perl5/5.34.0/Test2/API/Stack.pm
 /usr/lib/perl5/5.34.0/Test2/Event.pm
 /usr/lib/perl5/5.34.0/Test2/Event/Bail.pm
@@ -1647,6 +1731,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/pod/perl5303delta.pod
 /usr/lib/perl5/5.34.0/pod/perl5320delta.pod
 /usr/lib/perl5/5.34.0/pod/perl5321delta.pod
+/usr/lib/perl5/5.34.0/pod/perl5340delta.pod
 /usr/lib/perl5/5.34.0/pod/perl561delta.pod
 /usr/lib/perl5/5.34.0/pod/perl56delta.pod
 /usr/lib/perl5/5.34.0/pod/perl581delta.pod
@@ -1684,6 +1769,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/pod/perldeprecation.pod
 /usr/lib/perl5/5.34.0/pod/perldiag.pod
 /usr/lib/perl5/5.34.0/pod/perldoc.pod
+/usr/lib/perl5/5.34.0/pod/perldocstyle.pod
 /usr/lib/perl5/5.34.0/pod/perldos.pod
 /usr/lib/perl5/5.34.0/pod/perldsc.pod
 /usr/lib/perl5/5.34.0/pod/perldtrace.pod
@@ -2414,6 +2500,7 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perl.h
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perl_inc_macro.h
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perl_langinfo.h
+/usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perl_siphash.h
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perlapi.h
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perlio.h
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perliol.h
@@ -2600,17 +2687,3 @@ rm -f %{buildroot}/usr/share/man/man3/Test*
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/re.pm
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/threads.pm
 /usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/threads/shared.pm
-/usr/lib/perl5/5.34.0/ExtUtils/MM_OS390.pm
-/usr/lib/perl5/5.34.0/ExtUtils/PL2Bat.pm
-/usr/lib/perl5/5.34.0/Test2/API/InterceptResult.pm
-/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Event.pm
-/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Facet.pm
-/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Hub.pm
-/usr/lib/perl5/5.34.0/Test2/API/InterceptResult/Squasher.pm
-/usr/lib/perl5/5.34.0/pod/perl5340delta.pod
-/usr/lib/perl5/5.34.0/pod/perldocstyle.pod
-/usr/lib/perl5/5.34.0/x86_64-linux-thread-multi/CORE/perl_siphash.h
-/usr/share/man/man1/perl5340delta.1
-/usr/share/man/man1/perldocstyle.1
-/usr/share/man/man3/ExtUtils::MM_OS390.3
-/usr/share/man/man3/ExtUtils::PL2Bat.3

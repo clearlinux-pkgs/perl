@@ -7,6 +7,7 @@ bind-utils
 clr-network-troubleshooter
 clucene-core
 cmake
+compat-webkitgtk-soname40
 efitools
 exo
 geeqie
@@ -33,6 +34,7 @@ linux-tools
 lokalize
 lxqt-build-tools
 mc
+mlt
 modsecurity
 mxnet
 otp
