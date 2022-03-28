@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.34.0
-Release  : 92
+Release  : 93
 URL      : https://www.cpan.org/src/5.0/perl-5.34.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.34.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -24,8 +24,6 @@ BuildRequires : gdbm-dev
 BuildRequires : groff
 BuildRequires : less-bin
 BuildRequires : netbase
-BuildRequires : perl-Math-BigInt-GMP
-BuildRequires : perl-Test-Simple
 Patch1: config_h_delta.patch
 Patch2: 0001-Add-perlbench-for-pgo-optimization.patch
 Patch3: 0001-Add-option-for-pgo-profiling-test-with-perlbench.patch
@@ -123,12 +121,13 @@ popd
 export PERL5LIB=$(find ${_builddir} -type f -name strict.pm -execdir pwd \; | head -1)
 export PERL_MM_USE_DEFAULT=1
 export PERL_CANARY_STABILITY_NOPROMPT=1
+export BUILD_ZLIB=0
 ## build_prepend end
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633966357
+export SOURCE_DATE_EPOCH=1648507258
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -201,10 +200,11 @@ pushd ../buildavx2/
 export PERL5LIB=$(find ${_builddir} -type f -name strict.pm -execdir pwd \; | head -1)
 export PERL_MM_USE_DEFAULT=1
 export PERL_CANARY_STABILITY_NOPROMPT=1
+export BUILD_ZLIB=0
 ## build_prepend end
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %configure --disable-static -d \
@@ -243,7 +243,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1633966357
+export SOURCE_DATE_EPOCH=1648507258
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.34.0/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
@@ -252,16 +252,16 @@ cp %{_builddir}/perl-5.34.0/cpan/podlators/t/data/snippets/man/uppercase-license
 cp %{_builddir}/perl-5.34.0/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
 pushd ../buildavx2/
 %make_install_v3
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
 ## Remove excluded files
-rm -f %{buildroot}/usr/share/man/man3/ok.3
-rm -f %{buildroot}/usr/share/man/man3/List::Util.3
-rm -f %{buildroot}/usr/share/man/man3/List::Util::XS.3
-rm -f %{buildroot}/usr/share/man/man3/Scalar::Util.3
-rm -f %{buildroot}/usr/share/man/man3/Sub::Util.3
-rm -f %{buildroot}/usr/share/man/man3/Test*
+rm -f %{buildroot}*/usr/share/man/man3/ok.3
+rm -f %{buildroot}*/usr/share/man/man3/List::Util.3
+rm -f %{buildroot}*/usr/share/man/man3/List::Util::XS.3
+rm -f %{buildroot}*/usr/share/man/man3/Scalar::Util.3
+rm -f %{buildroot}*/usr/share/man/man3/Sub::Util.3
+rm -f %{buildroot}*/usr/share/man/man3/Test*
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)

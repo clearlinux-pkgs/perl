@@ -1,3 +1,4 @@
 export PERL5LIB=$(find ${_builddir} -type f -name strict.pm -execdir pwd \; | head -1)
 export PERL_MM_USE_DEFAULT=1
 export PERL_CANARY_STABILITY_NOPROMPT=1
+export BUILD_ZLIB=0
