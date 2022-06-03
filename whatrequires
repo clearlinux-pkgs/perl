@@ -33,6 +33,7 @@ libxfce4util
 linux-tools
 llvm
 llvm12
+llvm13
 lokalize
 lxqt-build-tools
 mc
