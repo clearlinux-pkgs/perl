@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.36.0
-Release  : 96
+Release  : 97
 URL      : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654282168
+export SOURCE_DATE_EPOCH=1656377893
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -244,7 +244,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1654282168
+export SOURCE_DATE_EPOCH=1656377893
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-5.36.0/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
@@ -262,7 +262,7 @@ rm -f %{buildroot}*/usr/share/man/man3/List::Util::XS.3
 rm -f %{buildroot}*/usr/share/man/man3/Scalar::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Sub::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Test*
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
