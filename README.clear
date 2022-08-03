@@ -5,3 +5,5 @@ e.g. linux-tools, subversion, openldap
 
 When changing versions of Perl, be sure to update the variable
 'inc_version_list' in configure to include the prior version(s) to support.
+
+Update excludes file to with new version to remove bootstrap specific content.
