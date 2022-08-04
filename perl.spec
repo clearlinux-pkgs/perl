@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.36.0
-Release  : 98
+Release  : 99
 URL      : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -98,6 +98,11 @@ man components for the perl package.
 Summary: perl components for the perl package.
 Group: Default
 Requires: perl = %{version}-%{release}
+Requires: perl(MIME::QuotedPrint)
+Requires: perl(Scalar::Util)
+Requires: perl(Storable)
+Requires: perl(Test::Builder)
+Requires: perl(Test::More)
 
 %description perl
 perl components for the perl package.
@@ -128,7 +133,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659554690
+export SOURCE_DATE_EPOCH=1659629207
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -244,13 +249,13 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1659554690
+export SOURCE_DATE_EPOCH=1659629207
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
-cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
-cp %{_builddir}/perl-%{version}/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
-cp %{_builddir}/perl-%{version}/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
-cp %{_builddir}/perl-%{version}/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
+cp %{_builddir}/perl-5.36.0/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
+cp %{_builddir}/perl-5.36.0/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
+cp %{_builddir}/perl-5.36.0/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
+cp %{_builddir}/perl-5.36.0/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
 pushd ../buildavx2/
 %make_install_v3
 popd
