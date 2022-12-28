@@ -4,7 +4,7 @@
 #
 Name     : perl
 Version  : 5.36.0
-Release  : 103
+Release  : 104
 URL      : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -25,6 +25,9 @@ BuildRequires : groff
 BuildRequires : less-bin
 BuildRequires : netbase
 BuildRequires : pkgconfig(zlib)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: config_h_delta.patch
 Patch2: 0001-Add-perlbench-for-pgo-optimization.patch
 Patch3: 0001-Add-option-for-pgo-profiling-test-with-perlbench.patch
@@ -133,15 +136,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659629207
+export SOURCE_DATE_EPOCH=1672255543
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CFLAGS_GENERATE="$CFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
 export FCFLAGS_GENERATE="$FCFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
 export FFLAGS_GENERATE="$FFLAGS -fprofile-generate -fprofile-dir=/var/tmp/pgo -fprofile-update=atomic "
@@ -249,13 +252,13 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1659629207
+export SOURCE_DATE_EPOCH=1672255543
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
-cp %{_builddir}/perl-5.36.0/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
-cp %{_builddir}/perl-5.36.0/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
-cp %{_builddir}/perl-5.36.0/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
-cp %{_builddir}/perl-5.36.0/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
+cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
+cp %{_builddir}/perl-%{version}/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
+cp %{_builddir}/perl-%{version}/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
+cp %{_builddir}/perl-%{version}/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
 pushd ../buildavx2/
 %make_install_v3
 popd
