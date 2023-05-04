@@ -12,7 +12,6 @@ exo
 gimp
 goocanvas
 gtk+
-gtk3
 ipxe
 kdelibs4support
 kdesdk-kioslaves
@@ -28,11 +27,11 @@ libxdg-basedir
 libxfce4ui
 libxfce4util
 linux-tools
+lldpd
 llvm
 llvm12
-llvm13
 llvm14
-lxqt-build-tools
+llvm15
 mc
 mlt
 modsecurity
@@ -40,7 +39,6 @@ otp
 parted
 pidgin-sipe
 pmix
-qt6base
 supertuxkart
 syntax-highlighting
 telepathy-qt
@@ -48,7 +46,7 @@ tpm2-tss
 v4l-utils
 vkd3d
 webkitgtk
-webkitgtk50
+webkitgtk60
 wget
 wireshark
 xfce4-panel
