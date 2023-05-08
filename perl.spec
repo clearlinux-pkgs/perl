@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : perl
-Version  : 5.36.0
-Release  : 107
-URL      : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
-Source0  : https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
+Version  : 5.36.1
+Release  : 108
+URL      : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
+Source0  : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
 Summary  : The Perl 5 language interpreter
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl Artistic-2.0 BSD-3-Clause GPL-1.0 GPL-1.0+ GPL-2.0+ MIT bzip2-1.0.6
@@ -91,8 +91,8 @@ perl components for the perl package.
 
 
 %prep
-%setup -q -n perl-5.36.0
-cd %{_builddir}/perl-5.36.0
+%setup -q -n perl-5.36.1
+cd %{_builddir}/perl-5.36.1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -101,7 +101,7 @@ cd %{_builddir}/perl-5.36.0
 %patch6 -p1
 %patch7 -p1
 pushd ..
-cp -a perl-5.36.0 buildavx2
+cp -a perl-5.36.1 buildavx2
 popd
 
 %build
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683219017
+export SOURCE_DATE_EPOCH=1683570853
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -231,7 +231,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1683219017
+export SOURCE_DATE_EPOCH=1683570853
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
@@ -262,7 +262,7 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.0/Test/More.pm
 %files bin
 %defattr(-,root,root,-)
 /V3/usr/bin/perl
-/V3/usr/bin/perl5.36.0
+/V3/usr/bin/perl5.36.1
 /usr/bin/corelist
 /usr/bin/cpan
 /usr/bin/enc2xs
@@ -273,7 +273,7 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.0/Test/More.pm
 /usr/bin/json_pp
 /usr/bin/libnetcfg
 /usr/bin/perl
-/usr/bin/perl5.36.0
+/usr/bin/perl5.36.1
 /usr/bin/perlbug
 /usr/bin/perldoc
 /usr/bin/perlivp
@@ -864,6 +864,7 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.0/Test/More.pm
 /usr/share/man/man1/perl5340delta.1
 /usr/share/man/man1/perl5341delta.1
 /usr/share/man/man1/perl5360delta.1
+/usr/share/man/man1/perl5361delta.1
 /usr/share/man/man1/perl561delta.1
 /usr/share/man/man1/perl56delta.1
 /usr/share/man/man1/perl581delta.1

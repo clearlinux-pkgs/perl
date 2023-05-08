@@ -1,12 +1,10 @@
 # This file contains recursive sources that require this package
-ParaView
 Thunar
 VTK
 avahi
 bind-utils
 clucene-core
 cmake
-compat-webkitgtk-soname40
 efitools
 exo
 gimp
