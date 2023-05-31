@@ -5,7 +5,7 @@
 #
 Name     : perl
 Version  : 5.36.1
-Release  : 109
+Release  : 110
 URL      : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683577717
+export SOURCE_DATE_EPOCH=1685576198
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -231,7 +231,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1683577717
+export SOURCE_DATE_EPOCH=1685576198
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
