@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : perl
-Version  : 5.36.1
-Release  : 111
-URL      : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
-Source0  : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
+Version  : 5.38.0
+Release  : 112
+URL      : https://www.cpan.org/src/5.0/perl-5.38.0.tar.gz
+Source0  : https://www.cpan.org/src/5.0/perl-5.38.0.tar.gz
 Summary  : The Perl 5 language interpreter
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl Artistic-2.0 BSD-3-Clause GPL-1.0 GPL-1.0+ GPL-2.0+ MIT bzip2-1.0.6
@@ -34,7 +34,6 @@ Patch4: Search-vendorlib-for-prior-versions.patch
 Patch5: 0005-Symlink-to-Configure.patch
 Patch6: 0006-Ignore-unknown-options-in-configure.patch
 Patch7: 0007-replace-clean-with-distclean.patch
-Patch8: backport-tiny-fix.patch
 
 %description
 Perl 5 is a highly capable, feature-rich programming language with over 27 years of development.
@@ -92,8 +91,8 @@ perl components for the perl package.
 
 
 %prep
-%setup -q -n perl-5.36.1
-cd %{_builddir}/perl-5.36.1
+%setup -q -n perl-5.38.0
+cd %{_builddir}/perl-5.38.0
 %patch -P 1 -p1
 %patch -P 2 -p1
 %patch -P 3 -p1
@@ -101,9 +100,8 @@ cd %{_builddir}/perl-5.36.1
 %patch -P 5 -p1
 %patch -P 6 -p1
 %patch -P 7 -p1
-%patch -P 8 -p1
 pushd ..
-cp -a perl-5.36.1 buildavx2
+cp -a perl-5.38.0 buildavx2
 popd
 
 %build
@@ -117,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690851995
+export SOURCE_DATE_EPOCH=1690912563
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -156,7 +154,7 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.36.0/x86_64-linux-thread-multi 5.36.0 5.36.0/x86_64-linux-thread-multi 5.36.0"
+-Dinc_version_list="5.36.1/x86_64-linux-thread-multi 5.36.1 5.36.1/x86_64-linux-thread-multi 5.36.1"
 make  %{?_smp_mflags}
 
 make test_pgo
@@ -181,7 +179,7 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.36.0/x86_64-linux-thread-multi 5.36.0 5.36.0/x86_64-linux-thread-multi 5.36.0"
+-Dinc_version_list="5.36.1/x86_64-linux-thread-multi 5.36.1 5.36.1/x86_64-linux-thread-multi 5.36.1"
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -217,7 +215,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.36.0/x86_64-linux-thread-multi 5.36.0 5.36.0/x86_64-linux-thread-multi 5.36.0"
+-Dinc_version_list="5.36.1/x86_64-linux-thread-multi 5.36.1 5.36.1/x86_64-linux-thread-multi 5.36.1"
 make  %{?_smp_mflags}
 popd
 %check
@@ -233,12 +231,11 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1690851995
+export SOURCE_DATE_EPOCH=1690912563
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
 cp %{_builddir}/perl-%{version}/cpan/Compress-Raw-Bzip2/bzip2-src/LICENSE %{buildroot}/usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926 || :
-cp %{_builddir}/perl-%{version}/cpan/podlators/t/data/snippets/man/uppercase-license %{buildroot}/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761 || :
 cp %{_builddir}/perl-%{version}/dist/ExtUtils-CBuilder/LICENSE %{buildroot}/usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187 || :
 pushd ../buildavx2/
 %make_install_v3
@@ -251,11 +248,11 @@ rm -f %{buildroot}*/usr/share/man/man3/List::Util::XS.3
 rm -f %{buildroot}*/usr/share/man/man3/Scalar::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Sub::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Test*
-rm -f %{buildroot}*/usr/lib/perl5/5.36.1/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
-rm -f %{buildroot}*/usr/lib/perl5/5.36.1/x86_64-linux-thread-multi/Scalar/Util.pm
-rm -f %{buildroot}*/usr/lib/perl5/5.36.1/x86_64-linux-thread-multi/Storable.pm
-rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/Builder.pm
-rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/Test/Builder.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/Test/More.pm
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
@@ -264,7 +261,7 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 %files bin
 %defattr(-,root,root,-)
 /V3/usr/bin/perl
-/V3/usr/bin/perl5.36.1
+/V3/usr/bin/perl5.38.0
 /usr/bin/corelist
 /usr/bin/cpan
 /usr/bin/enc2xs
@@ -275,7 +272,7 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 /usr/bin/json_pp
 /usr/bin/libnetcfg
 /usr/bin/perl
-/usr/bin/perl5.36.1
+/usr/bin/perl5.38.0
 /usr/bin/perlbug
 /usr/bin/perldoc
 /usr/bin/perlivp
@@ -554,8 +551,6 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 /usr/share/man/man3/Memoize.3
 /usr/share/man/man3/Memoize::AnyDBM_File.3
 /usr/share/man/man3/Memoize::Expire.3
-/usr/share/man/man3/Memoize::ExpireFile.3
-/usr/share/man/man3/Memoize::ExpireTest.3
 /usr/share/man/man3/Memoize::NDBM_File.3
 /usr/share/man/man3/Memoize::SDBM_File.3
 /usr/share/man/man3/Memoize::Storable.3
@@ -780,11 +775,11 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 /usr/share/man/man3/re.3
 /usr/share/man/man3/sigtrap.3
 /usr/share/man/man3/sort.3
+/usr/share/man/man3/stable.3
 /usr/share/man/man3/strict.3
 /usr/share/man/man3/subs.3
 /usr/share/man/man3/threads.3
 /usr/share/man/man3/threads::shared.3
-/usr/share/man/man3/unicore::Name.3
 /usr/share/man/man3/utf8.3
 /usr/share/man/man3/vars.3
 /usr/share/man/man3/version.3
@@ -796,7 +791,6 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855
-/usr/share/package-licenses/perl/5dda7a36258472b2ea78f4114024c1e2981ff761
 /usr/share/package-licenses/perl/6deba81fe267c399cbb316c1fb0d037b0fcdb187
 /usr/share/package-licenses/perl/ddf157bc55ed6dec9541e4af796294d666cd0926
 
@@ -867,6 +861,7 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 /usr/share/man/man1/perl5341delta.1
 /usr/share/man/man1/perl5360delta.1
 /usr/share/man/man1/perl5361delta.1
+/usr/share/man/man1/perl5380delta.1
 /usr/share/man/man1/perl561delta.1
 /usr/share/man/man1/perl56delta.1
 /usr/share/man/man1/perl581delta.1
@@ -892,6 +887,8 @@ rm -f %{buildroot}*/usr/lib/perl5/5.36.1/Test/More.pm
 /usr/share/man/man1/perlbug.1
 /usr/share/man/man1/perlcall.1
 /usr/share/man/man1/perlcheat.1
+/usr/share/man/man1/perlclass.1
+/usr/share/man/man1/perlclassguts.1
 /usr/share/man/man1/perlclib.1
 /usr/share/man/man1/perlcn.1
 /usr/share/man/man1/perlcommunity.1
