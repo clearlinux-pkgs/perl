@@ -5,7 +5,7 @@
 #
 Name     : perl
 Version  : 5.36.1
-Release  : 110
+Release  : 111
 URL      : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.36.1.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -34,6 +34,7 @@ Patch4: Search-vendorlib-for-prior-versions.patch
 Patch5: 0005-Symlink-to-Configure.patch
 Patch6: 0006-Ignore-unknown-options-in-configure.patch
 Patch7: 0007-replace-clean-with-distclean.patch
+Patch8: backport-tiny-fix.patch
 
 %description
 Perl 5 is a highly capable, feature-rich programming language with over 27 years of development.
@@ -93,13 +94,14 @@ perl components for the perl package.
 %prep
 %setup -q -n perl-5.36.1
 cd %{_builddir}/perl-5.36.1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
+%patch -P 3 -p1
+%patch -P 4 -p1
+%patch -P 5 -p1
+%patch -P 6 -p1
+%patch -P 7 -p1
+%patch -P 8 -p1
 pushd ..
 cp -a perl-5.36.1 buildavx2
 popd
@@ -115,7 +117,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685576198
+export SOURCE_DATE_EPOCH=1690851995
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -231,7 +233,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1685576198
+export SOURCE_DATE_EPOCH=1690851995
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :

@@ -26,7 +26,6 @@ libxfce4util
 linux-tools
 lldpd
 llvm
-llvm12
 llvm14
 llvm15
 mc
@@ -44,6 +43,7 @@ v4l-utils
 vkd3d
 webkitgtk
 webkitgtk60
+weechat
 wget
 wireshark
 xfce4-panel
