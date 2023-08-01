@@ -5,7 +5,7 @@
 #
 Name     : perl
 Version  : 5.38.0
-Release  : 113
+Release  : 114
 URL      : https://www.cpan.org/src/5.0/perl-5.38.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.38.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690930154
+export SOURCE_DATE_EPOCH=1690933779
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -154,7 +154,7 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.36.1/x86_64-linux-thread-multi 5.36.1 5.36.1/x86_64-linux-thread-multi 5.36.1"
+-Dinc_version_list="5.36.1"
 make  %{?_smp_mflags}
 
 make test_pgo
@@ -179,7 +179,7 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.36.1/x86_64-linux-thread-multi 5.36.1 5.36.1/x86_64-linux-thread-multi 5.36.1"
+-Dinc_version_list="5.36.1"
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -215,7 +215,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.36.1/x86_64-linux-thread-multi 5.36.1 5.36.1/x86_64-linux-thread-multi 5.36.1"
+-Dinc_version_list="5.36.1"
 make  %{?_smp_mflags}
 popd
 %check
@@ -231,7 +231,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1690930154
+export SOURCE_DATE_EPOCH=1690933779
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
