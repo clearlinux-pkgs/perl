@@ -6,8 +6,8 @@
 /usr/share/man/man3/Test*
 
 # Only used on version bootstrap, update version once complete
-/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
-/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
-/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
-/usr/lib/perl5/*/Test/Builder.pm
-/usr/lib/perl5/*/Test/More.pm
+#/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
+#/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
+#/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
+#/usr/lib/perl5/*/Test/Builder.pm
+#/usr/lib/perl5/*/Test/More.pm

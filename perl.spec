@@ -5,7 +5,7 @@
 #
 Name     : perl
 Version  : 5.38.0
-Release  : 112
+Release  : 113
 URL      : https://www.cpan.org/src/5.0/perl-5.38.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.38.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690912563
+export SOURCE_DATE_EPOCH=1690930154
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -231,7 +231,7 @@ fi
 LC_ALL=C TEST_JOBS=$JOBS make test_harness || :
 
 %install
-export SOURCE_DATE_EPOCH=1690912563
+export SOURCE_DATE_EPOCH=1690930154
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
@@ -248,11 +248,6 @@ rm -f %{buildroot}*/usr/share/man/man3/List::Util::XS.3
 rm -f %{buildroot}*/usr/share/man/man3/Scalar::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Sub::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Test*
-rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
-rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
-rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
-rm -f %{buildroot}*/usr/lib/perl5/*/Test/Builder.pm
-rm -f %{buildroot}*/usr/lib/perl5/*/Test/More.pm
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
