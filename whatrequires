@@ -16,10 +16,12 @@ kdesdk-kioslaves
 kdoctools
 khtml
 kjs
+libaom
 libdnf
 libgeotiff
 libgtop
 libical
+libopenmpt
 libxdg-basedir
 libxfce4ui
 libxfce4util
@@ -28,6 +30,8 @@ lldpd
 llvm
 llvm14
 llvm15
+llvm16
+mbedtls
 mc
 mlt
 modsecurity
@@ -35,6 +39,7 @@ otp
 parted
 pidgin-sipe
 pmix
+qt6webengine
 supertuxkart
 syntax-highlighting
 telepathy-qt
