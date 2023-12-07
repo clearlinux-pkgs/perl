@@ -7,7 +7,7 @@
 #
 Name     : perl
 Version  : 5.38.2
-Release  : 119
+Release  : 120
 URL      : https://www.cpan.org/src/5.0/perl-5.38.2.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.38.2.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -117,7 +117,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701979272
+export SOURCE_DATE_EPOCH=1701984304
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -263,7 +263,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701979272
+export SOURCE_DATE_EPOCH=1701984304
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
@@ -274,19 +274,23 @@ pushd ../buildavx2/
 popd
 %make_install
 ## Remove excluded files
-rm -f %{buildroot}*/usr/share/man/man3/ok.3
 rm -f %{buildroot}*/usr/share/man/man3/Getopt::Long.3
 rm -f %{buildroot}*/usr/share/man/man3/List::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/List::Util::XS.3
 rm -f %{buildroot}*/usr/share/man/man3/Scalar::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Sub::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Test*
-rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
-rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
-rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
+rm -f %{buildroot}*/usr/share/man/man3/ok.3
 rm -f %{buildroot}*/usr/lib/perl5/*/Getopt/Long.pm
 rm -f %{buildroot}*/usr/lib/perl5/*/Test/Builder.pm
 rm -f %{buildroot}*/usr/lib/perl5/*/Test/More.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util/XS.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/Sub/Util.pm
+rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/List/Util/Util.so
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
