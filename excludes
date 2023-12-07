@@ -9,5 +9,6 @@
 /usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
+/usr/lib/perl5/*/Getopt/Long.pm
 /usr/lib/perl5/*/Test/Builder.pm
 /usr/lib/perl5/*/Test/More.pm
