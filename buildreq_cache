@@ -1,2 +1,3 @@
-5.38.2
+5.40.0
+perl(JSON::MaybeXS)
 pkgconfig(zlib)

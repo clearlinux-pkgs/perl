@@ -5,16 +5,15 @@ avahi
 bind-utils
 clucene-core
 cmake
+dpcpp-compiler
 efitools
 exo
 gimp
 goocanvas
 gtk+
 ipxe
-kdelibs4support
-kdesdk-kioslaves
+kdesdk-kio
 kdoctools
-khtml
 kjs
 libaom
 libdnf
@@ -32,7 +31,6 @@ llvm14
 llvm15
 llvm16
 mbedtls
-mc
 mlt
 modsecurity
 otp
@@ -54,3 +52,4 @@ wireshark
 xfce4-panel
 xfconf
 xscreensaver
+znc
