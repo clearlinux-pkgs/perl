@@ -3,6 +3,7 @@
 /usr/share/man/man3/List::Util::XS.3
 /usr/share/man/man3/Scalar::Util.3
 /usr/share/man/man3/Sub::Util.3
+/usr/share/man/man3/Term::Table.3
 /usr/share/man/man3/Test*
 /usr/share/man/man3/ok.3
 
@@ -10,6 +11,7 @@
 /usr/lib/perl5/*/Getopt/Long.pm
 /usr/lib/perl5/*/Test/Builder.pm
 /usr/lib/perl5/*/Test/More.pm
+/usr/lib/perl5/*/Term/Table.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util/XS.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
