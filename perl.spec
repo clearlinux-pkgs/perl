@@ -7,7 +7,7 @@
 #
 Name     : perl
 Version  : 5.40.0
-Release  : 130
+Release  : 131
 URL      : https://www.cpan.org/src/5.0/perl-5.40.0.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.40.0.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -118,7 +118,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1719861599
+export SOURCE_DATE_EPOCH=1719865744
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -266,7 +266,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1719861599
+export SOURCE_DATE_EPOCH=1719865744
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
@@ -281,11 +281,13 @@ GOAMD64=v2
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}*/usr/share/man/man3/Getopt::Long.3
+rm -f %{buildroot}*/usr/share/man/man3/Getopt::Long::*
 rm -f %{buildroot}*/usr/share/man/man3/List::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/List::Util::XS.3
 rm -f %{buildroot}*/usr/share/man/man3/Scalar::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Sub::Util.3
 rm -f %{buildroot}*/usr/share/man/man3/Term::Table.3
+rm -f %{buildroot}*/usr/share/man/man3/Term::Table::*
 rm -f %{buildroot}*/usr/share/man/man3/Test*
 rm -f %{buildroot}*/usr/share/man/man3/ok.3
 rm -f %{buildroot}*/usr/lib/perl5/*/Getopt/Long.pm
@@ -531,7 +533,6 @@ rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/List/Util/Uti
 /usr/share/man/man3/Filter::Util::Call.3
 /usr/share/man/man3/FindBin.3
 /usr/share/man/man3/GDBM_File.3
-/usr/share/man/man3/Getopt::Long::Parser.3
 /usr/share/man/man3/Getopt::Std.3
 /usr/share/man/man3/HTTP::Tiny.3
 /usr/share/man/man3/Hash::Util.3
@@ -740,11 +741,6 @@ rm -f %{buildroot}*/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/List/Util/Uti
 /usr/share/man/man3/Term::Cap.3
 /usr/share/man/man3/Term::Complete.3
 /usr/share/man/man3/Term::ReadLine.3
-/usr/share/man/man3/Term::Table::Cell.3
-/usr/share/man/man3/Term::Table::CellStack.3
-/usr/share/man/man3/Term::Table::HashBase.3
-/usr/share/man/man3/Term::Table::LineBreak.3
-/usr/share/man/man3/Term::Table::Util.3
 /usr/share/man/man3/Text::Abbrev.3
 /usr/share/man/man3/Text::Balanced.3
 /usr/share/man/man3/Text::ParseWords.3
