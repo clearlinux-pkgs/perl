@@ -1,0 +1,2 @@
+# Remove empty directories left behind by excludes
+find %{buildroot}/usr/share/man %{buildroot}/usr/lib/perl5 -type d -empty -delete
