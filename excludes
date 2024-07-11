@@ -14,6 +14,10 @@
 /usr/lib/perl5/*/Test/Builder.pm
 /usr/lib/perl5/*/Test/More.pm
 /usr/lib/perl5/*/Term/Table.pm
+/usr/lib/perl5/*/Term/Table/*
+/usr/lib/perl5/*/Test2/Util.pm
+/usr/lib/perl5/*/Test2/Util/Table/*.pm
+/usr/lib/perl5/*/Test2/Util/*.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util/XS.pm
 /usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
