@@ -7,7 +7,7 @@
 #
 Name     : perl
 Version  : 5.40.1
-Release  : 136
+Release  : 137
 URL      : https://www.cpan.org/src/5.0/perl-5.40.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.40.1.tar.gz
 Summary  : The Perl 5 language interpreter
