@@ -7,7 +7,7 @@
 #
 Name     : perl
 Version  : 5.40.1
-Release  : 135
+Release  : 136
 URL      : https://www.cpan.org/src/5.0/perl-5.40.1.tar.gz
 Source0  : https://www.cpan.org/src/5.0/perl-5.40.1.tar.gz
 Summary  : The Perl 5 language interpreter
@@ -118,7 +118,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1737480946
+export SOURCE_DATE_EPOCH=1737485919
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -163,7 +163,7 @@ CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GEN
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.38.2"
+-Dinc_version_list="5.40.0"
 make  %{?_smp_mflags}
 
 make test_pgo
@@ -189,7 +189,7 @@ CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.38.2"
+-Dinc_version_list="5.40.0"
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -226,7 +226,7 @@ LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
 -Adefine:ldflags="$LDFLAGS" \
 -Adefine:lddflags="$LDFLAGS" \
 -U d_off64_t \
--Dinc_version_list="5.38.2"
+-Dinc_version_list="5.40.0"
 make  %{?_smp_mflags}
 popd
 %check
@@ -266,7 +266,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1737480946
+export SOURCE_DATE_EPOCH=1737485919
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl
 cp %{_builddir}/perl-%{version}/Copying %{buildroot}/usr/share/package-licenses/perl/18eaf66587c5eea277721d5e569a6e3cd869f855 || :
