@@ -3,3 +3,4 @@
 perl-Test-Simple
 perl-Math-BigInt-GMP
 perl-List-Util
+perl-Storable

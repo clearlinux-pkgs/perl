@@ -20,6 +20,7 @@ Requires: perl-perl = %{version}-%{release}
 Requires: perl-Math-BigInt-GMP
 Requires: perl-Test-Simple
 Requires: perl-List-Util
+Requires: perl-Storable
 BuildRequires : bison
 BuildRequires : flex
 BuildRequires : gdbm-dev
