@@ -19,6 +19,7 @@ Requires: perl-man = %{version}-%{release}
 Requires: perl-perl = %{version}-%{release}
 Requires: perl-Math-BigInt-GMP
 Requires: perl-Test-Simple
+Requires: perl-List-Util
 BuildRequires : bison
 BuildRequires : flex
 BuildRequires : gdbm-dev

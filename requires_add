@@ -2,3 +2,4 @@
 # picked up automatically. One name per line, no whitespace.
 perl-Test-Simple
 perl-Math-BigInt-GMP
+perl-List-Util
