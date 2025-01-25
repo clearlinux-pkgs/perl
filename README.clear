@@ -7,3 +7,21 @@ When changing versions of Perl, be sure to update the variable
 'inc_version_list' in configure to include the prior version(s) to support.
 
 Update excludes file to with new version to remove bootstrap specific content.
+These Perl modules will initially be provided by the new perl package, but this
+should then be used to rebuild the latest versions of those standalone packages,
+and then the main perl package rebuilt without them.
+
+These packages should be rebuilt for a new Perl version *first*, because many
+other packages will depend on them. Note that these partially overlap with the
+bootstrap content mentioned above.:
+Storable
+Scalar::Util
+Module::Build
+ExtUtils::Config
+Test::More
+MIME::QuotedPrint
+Term::Table
+Getopt::Long"$
+
+Any other packages in the Test:: and Test2:: hierarchies should also be rebuilt early, as
+other Perl packages will be expecting to use them in their test suites.
