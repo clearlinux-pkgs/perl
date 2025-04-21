@@ -10,225 +10,225 @@
 /usr/share/man/man3/ok.3
 
 # Only used on version bootstrap, update version once complete
-# /usr/lib/perl5/*/Getopt/Long.pm
-# /usr/lib/perl5/*/Test/Builder.pm
-# /usr/lib/perl5/*/Test/More.pm
-# /usr/lib/perl5/*/Term/Table.pm
-# /usr/lib/perl5/*/Term/Table/*
-# /usr/lib/perl5/*/Test2/Util.pm
-# /usr/lib/perl5/*/Test2/Util/Table/*.pm
-# /usr/lib/perl5/*/Test2/Util/*.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util/XS.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/Sub/Util.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/auto/List/Util/Util.so
-# /usr/lib/perl5/*/Getopt/Long/Parser.pm
-# /usr/lib/perl5/*/ok.pm
-# /usr/lib/perl5/*/Term/Table/Cell.pm
-# /usr/lib/perl5/*/Term/Table/CellStack.pm
-# /usr/lib/perl5/*/Term/Table/HashBase.pm
-# /usr/lib/perl5/*/Term/Table/LineBreak.pm
-# /usr/lib/perl5/*/Term/Table/Spacer.pm
-# /usr/lib/perl5/*/Term/Table/Util.pm
-# /usr/lib/perl5/*/Test2/API/Breakage.pm
-# /usr/lib/perl5/*/Test2/API/Context.pm
-# /usr/lib/perl5/*/Test2/API/Instance.pm
-# /usr/lib/perl5/*/Test2/API/InterceptResult/Event.pm
-# /usr/lib/perl5/*/Test2/API/InterceptResult/Facet.pm
-# /usr/lib/perl5/*/Test2/API/InterceptResult/Hub.pm
-# /usr/lib/perl5/*/Test2/API/InterceptResult.pm
-# /usr/lib/perl5/*/Test2/API/InterceptResult/Squasher.pm
-# /usr/lib/perl5/*/Test2/API.pm
-# /usr/lib/perl5/*/Test2/API/Stack.pm
-# /usr/lib/perl5/*/Test2/AsyncSubtest/Event/Attach.pm
-# /usr/lib/perl5/*/Test2/AsyncSubtest/Event/Detach.pm
-# /usr/lib/perl5/*/Test2/AsyncSubtest/Formatter.pm
-# /usr/lib/perl5/*/Test2/AsyncSubtest/Hub.pm
-# /usr/lib/perl5/*/Test2/AsyncSubtest.pm
-# /usr/lib/perl5/*/Test2/Bundle/Extended.pm
-# /usr/lib/perl5/*/Test2/Bundle/More.pm
-# /usr/lib/perl5/*/Test2/Bundle.pm
-# /usr/lib/perl5/*/Test2/Bundle/Simple.pm
-# /usr/lib/perl5/*/Test2/Compare/Array.pm
-# /usr/lib/perl5/*/Test2/Compare/Bag.pm
-# /usr/lib/perl5/*/Test2/Compare/Base.pm
-# /usr/lib/perl5/*/Test2/Compare/Bool.pm
-# /usr/lib/perl5/*/Test2/Compare/Custom.pm
-# /usr/lib/perl5/*/Test2/Compare/DeepRef.pm
-# /usr/lib/perl5/*/Test2/Compare/Delta.pm
-# /usr/lib/perl5/*/Test2/Compare/EventMeta.pm
-# /usr/lib/perl5/*/Test2/Compare/Event.pm
-# /usr/lib/perl5/*/Test2/Compare/Float.pm
-# /usr/lib/perl5/*/Test2/Compare/Hash.pm
-# /usr/lib/perl5/*/Test2/Compare/Isa.pm
-# /usr/lib/perl5/*/Test2/Compare/Meta.pm
-# /usr/lib/perl5/*/Test2/Compare/Negatable.pm
-# /usr/lib/perl5/*/Test2/Compare/Number.pm
-# /usr/lib/perl5/*/Test2/Compare/Object.pm
-# /usr/lib/perl5/*/Test2/Compare/OrderedSubset.pm
-# /usr/lib/perl5/*/Test2/Compare/Pattern.pm
-# /usr/lib/perl5/*/Test2/Compare.pm
-# /usr/lib/perl5/*/Test2/Compare/Ref.pm
-# /usr/lib/perl5/*/Test2/Compare/Regex.pm
-# /usr/lib/perl5/*/Test2/Compare/Scalar.pm
-# /usr/lib/perl5/*/Test2/Compare/Set.pm
-# /usr/lib/perl5/*/Test2/Compare/String.pm
-# /usr/lib/perl5/*/Test2/Compare/Undef.pm
-# /usr/lib/perl5/*/Test2/Compare/Wildcard.pm
-# /usr/lib/perl5/*/Test2/Event/Bail.pm
-# /usr/lib/perl5/*/Test2/Event/Diag.pm
-# /usr/lib/perl5/*/Test2/Event/Encoding.pm
-# /usr/lib/perl5/*/Test2/Event/Exception.pm
-# /usr/lib/perl5/*/Test2/EventFacet/About.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Amnesty.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Assert.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Control.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Error.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Hub.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Info.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Info/Table.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Meta.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Parent.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Plan.pm
-# /usr/lib/perl5/*/Test2/EventFacet.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Render.pm
-# /usr/lib/perl5/*/Test2/EventFacet/Trace.pm
-# /usr/lib/perl5/*/Test2/Event/Fail.pm
-# /usr/lib/perl5/*/Test2/Event/Generic.pm
-# /usr/lib/perl5/*/Test2/Event/Note.pm
-# /usr/lib/perl5/*/Test2/Event/Ok.pm
-# /usr/lib/perl5/*/Test2/Event/Pass.pm
-# /usr/lib/perl5/*/Test2/Event/Plan.pm
-# /usr/lib/perl5/*/Test2/Event.pm
-# /usr/lib/perl5/*/Test2/Event/Skip.pm
-# /usr/lib/perl5/*/Test2/Event/Subtest.pm
-# /usr/lib/perl5/*/Test2/Event/TAP/Version.pm
-# /usr/lib/perl5/*/Test2/Event/V2.pm
-# /usr/lib/perl5/*/Test2/Event/Waiting.pm
-# /usr/lib/perl5/*/Test2/Formatter.pm
-# /usr/lib/perl5/*/Test2/Formatter/TAP.pm
-# /usr/lib/perl5/*/Test2/Hub/Interceptor.pm
-# /usr/lib/perl5/*/Test2/Hub/Interceptor/Terminator.pm
-# /usr/lib/perl5/*/Test2/Hub.pm
-# /usr/lib/perl5/*/Test2/Hub/Subtest.pm
-# /usr/lib/perl5/*/Test2/IPC/Driver/Files.pm
-# /usr/lib/perl5/*/Test2/IPC/Driver.pm
-# /usr/lib/perl5/*/Test2/IPC.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/API.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/Context.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/EndToEnd.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/Event.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/Hubs.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/IPC.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy.pm
-# /usr/lib/perl5/*/Test2/Manual/Anatomy/Utilities.pm
-# /usr/lib/perl5/*/Test2/Manual/Concurrency.pm
-# /usr/lib/perl5/*/Test2/Manual/Contributing.pm
-# /usr/lib/perl5/*/Test2/Manual.pm
-# /usr/lib/perl5/*/Test2/Manual/Testing/Introduction.pm
-# /usr/lib/perl5/*/Test2/Manual/Testing/Migrating.pm
-# /usr/lib/perl5/*/Test2/Manual/Testing/Planning.pm
-# /usr/lib/perl5/*/Test2/Manual/Testing.pm
-# /usr/lib/perl5/*/Test2/Manual/Testing/Todo.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/FirstTool.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Formatter.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Nesting.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/TestExit.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/TestingDone.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/ToolCompletes.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/ToolStarts.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Subtest.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/TestBuilder.pm
-# /usr/lib/perl5/*/Test2/Manual/Tooling/Testing.pm
-# /usr/lib/perl5/*/Test2/Mock.pm
-# /usr/lib/perl5/*/Test2/Plugin/BailOnFail.pm
-# /usr/lib/perl5/*/Test2/Plugin/DieOnFail.pm
-# /usr/lib/perl5/*/Test2/Plugin/ExitSummary.pm
-# /usr/lib/perl5/*/Test2/Plugin.pm
-# /usr/lib/perl5/*/Test2/Plugin/SRand.pm
-# /usr/lib/perl5/*/Test2/Plugin/Times.pm
-# /usr/lib/perl5/*/Test2/Plugin/UTF8.pm
-# /usr/lib/perl5/*/Test2.pm
-# /usr/lib/perl5/*/Test2/Require/AuthorTesting.pm
-# /usr/lib/perl5/*/Test2/Require/AutomatedTesting.pm
-# /usr/lib/perl5/*/Test2/Require/EnvVar.pm
-# /usr/lib/perl5/*/Test2/Require/ExtendedTesting.pm
-# /usr/lib/perl5/*/Test2/Require/Fork.pm
-# /usr/lib/perl5/*/Test2/Require/Module.pm
-# /usr/lib/perl5/*/Test2/Require/NonInteractiveTesting.pm
-# /usr/lib/perl5/*/Test2/Require/Perl.pm
-# /usr/lib/perl5/*/Test2/Require.pm
-# /usr/lib/perl5/*/Test2/Require/RealFork.pm
-# /usr/lib/perl5/*/Test2/Require/ReleaseTesting.pm
-# /usr/lib/perl5/*/Test2/Require/Threads.pm
-# /usr/lib/perl5/*/Test2/Suite.pm
-# /usr/lib/perl5/*/Test2/Todo.pm
-# /usr/lib/perl5/*/Test2/Tools/AsyncSubtest.pm
-# /usr/lib/perl5/*/Test2/Tools/Basic.pm
-# /usr/lib/perl5/*/Test2/Tools/ClassicCompare.pm
-# /usr/lib/perl5/*/Test2/Tools/Class.pm
-# /usr/lib/perl5/*/Test2/Tools/Compare.pm
-# /usr/lib/perl5/*/Test2/Tools/Defer.pm
-# /usr/lib/perl5/*/Test2/Tools/Encoding.pm
-# /usr/lib/perl5/*/Test2/Tools/Event.pm
-# /usr/lib/perl5/*/Test2/Tools/Exception.pm
-# /usr/lib/perl5/*/Test2/Tools/Exports.pm
-# /usr/lib/perl5/*/Test2/Tools/GenTemp.pm
-# /usr/lib/perl5/*/Test2/Tools/Grab.pm
-# /usr/lib/perl5/*/Test2/Tools/Mock.pm
-# /usr/lib/perl5/*/Test2/Tools.pm
-# /usr/lib/perl5/*/Test2/Tools/Refcount.pm
-# /usr/lib/perl5/*/Test2/Tools/Ref.pm
-# /usr/lib/perl5/*/Test2/Tools/Spec.pm
-# /usr/lib/perl5/*/Test2/Tools/Subtest.pm
-# /usr/lib/perl5/*/Test2/Tools/Target.pm
-# /usr/lib/perl5/*/Test2/Tools/Tester.pm
-# /usr/lib/perl5/*/Test2/Tools/Tiny.pm
-# /usr/lib/perl5/*/Test2/Tools/Warnings.pm
-# /usr/lib/perl5/*/Test2/Transition.pod
-# /usr/lib/perl5/*/Test2/Util/ExternalMeta.pm
-# /usr/lib/perl5/*/Test2/Util/Facets2Legacy.pm
-# /usr/lib/perl5/*/Test2/Util/Grabber.pm
-# /usr/lib/perl5/*/Test2/Util/Guard.pm
-# /usr/lib/perl5/*/Test2/Util/HashBase.pm
-# /usr/lib/perl5/*/Test2/Util/Importer.pm
-# /usr/lib/perl5/*/Test2/Util.pm
-# /usr/lib/perl5/*/Test2/Util/Ref.pm
-# /usr/lib/perl5/*/Test2/Util/Stash.pm
-# /usr/lib/perl5/*/Test2/Util/Sub.pm
-# /usr/lib/perl5/*/Test2/Util/Table/Cell.pm
-# /usr/lib/perl5/*/Test2/Util/Table/LineBreak.pm
-# /usr/lib/perl5/*/Test2/Util/Table.pm
-# /usr/lib/perl5/*/Test2/Util/Term.pm
-# /usr/lib/perl5/*/Test2/Util/Times.pm
-# /usr/lib/perl5/*/Test2/Util/Trace.pm
-# /usr/lib/perl5/*/Test2/V0.pm
-# /usr/lib/perl5/*/Test2/Workflow/BlockBase.pm
-# /usr/lib/perl5/*/Test2/Workflow/Build.pm
-# /usr/lib/perl5/*/Test2/Workflow.pm
-# /usr/lib/perl5/*/Test2/Workflow/Runner.pm
-# /usr/lib/perl5/*/Test2/Workflow/Task/Action.pm
-# /usr/lib/perl5/*/Test2/Workflow/Task/Group.pm
-# /usr/lib/perl5/*/Test2/Workflow/Task.pm
-# /usr/lib/perl5/*/Test/Builder/Formatter.pm
-# /usr/lib/perl5/*/Test/Builder/IO/Scalar.pm
-# /usr/lib/perl5/*/Test/Builder/Module.pm
-# /usr/lib/perl5/*/Test/Builder/Tester/Color.pm
-# /usr/lib/perl5/*/Test/Builder/Tester.pm
-# /usr/lib/perl5/*/Test/Builder/TodoDiag.pm
-# /usr/lib/perl5/*/Test/Simple.pm
-# /usr/lib/perl5/*/Test/Tester/Capture.pm
-# /usr/lib/perl5/*/Test/Tester/CaptureRunner.pm
-# /usr/lib/perl5/*/Test/Tester/Delegate.pm
-# /usr/lib/perl5/*/Test/Tester.pm
-# /usr/lib/perl5/*/Test/Tutorial.pod
-# /usr/lib/perl5/*/Test/use/ok.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/auto/MIME/Base64/Base64.so
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/auto/Storable/Storable.so
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/Digest/MD5.pm
-# /usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/Base64.pm
+/usr/lib/perl5/*/Getopt/Long.pm
+/usr/lib/perl5/*/Test/Builder.pm
+/usr/lib/perl5/*/Test/More.pm
+/usr/lib/perl5/*/Term/Table.pm
+/usr/lib/perl5/*/Term/Table/*
+/usr/lib/perl5/*/Test2/Util.pm
+/usr/lib/perl5/*/Test2/Util/Table/*.pm
+/usr/lib/perl5/*/Test2/Util/*.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/List/Util/XS.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/QuotedPrint.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/Scalar/Util.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/Storable.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/Sub/Util.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/List/Util/Util.so
+/usr/lib/perl5/*/Getopt/Long/Parser.pm
+/usr/lib/perl5/*/ok.pm
+/usr/lib/perl5/*/Term/Table/Cell.pm
+/usr/lib/perl5/*/Term/Table/CellStack.pm
+/usr/lib/perl5/*/Term/Table/HashBase.pm
+/usr/lib/perl5/*/Term/Table/LineBreak.pm
+/usr/lib/perl5/*/Term/Table/Spacer.pm
+/usr/lib/perl5/*/Term/Table/Util.pm
+/usr/lib/perl5/*/Test2/API/Breakage.pm
+/usr/lib/perl5/*/Test2/API/Context.pm
+/usr/lib/perl5/*/Test2/API/Instance.pm
+/usr/lib/perl5/*/Test2/API/InterceptResult/Event.pm
+/usr/lib/perl5/*/Test2/API/InterceptResult/Facet.pm
+/usr/lib/perl5/*/Test2/API/InterceptResult/Hub.pm
+/usr/lib/perl5/*/Test2/API/InterceptResult.pm
+/usr/lib/perl5/*/Test2/API/InterceptResult/Squasher.pm
+/usr/lib/perl5/*/Test2/API.pm
+/usr/lib/perl5/*/Test2/API/Stack.pm
+/usr/lib/perl5/*/Test2/AsyncSubtest/Event/Attach.pm
+/usr/lib/perl5/*/Test2/AsyncSubtest/Event/Detach.pm
+/usr/lib/perl5/*/Test2/AsyncSubtest/Formatter.pm
+/usr/lib/perl5/*/Test2/AsyncSubtest/Hub.pm
+/usr/lib/perl5/*/Test2/AsyncSubtest.pm
+/usr/lib/perl5/*/Test2/Bundle/Extended.pm
+/usr/lib/perl5/*/Test2/Bundle/More.pm
+/usr/lib/perl5/*/Test2/Bundle.pm
+/usr/lib/perl5/*/Test2/Bundle/Simple.pm
+/usr/lib/perl5/*/Test2/Compare/Array.pm
+/usr/lib/perl5/*/Test2/Compare/Bag.pm
+/usr/lib/perl5/*/Test2/Compare/Base.pm
+/usr/lib/perl5/*/Test2/Compare/Bool.pm
+/usr/lib/perl5/*/Test2/Compare/Custom.pm
+/usr/lib/perl5/*/Test2/Compare/DeepRef.pm
+/usr/lib/perl5/*/Test2/Compare/Delta.pm
+/usr/lib/perl5/*/Test2/Compare/EventMeta.pm
+/usr/lib/perl5/*/Test2/Compare/Event.pm
+/usr/lib/perl5/*/Test2/Compare/Float.pm
+/usr/lib/perl5/*/Test2/Compare/Hash.pm
+/usr/lib/perl5/*/Test2/Compare/Isa.pm
+/usr/lib/perl5/*/Test2/Compare/Meta.pm
+/usr/lib/perl5/*/Test2/Compare/Negatable.pm
+/usr/lib/perl5/*/Test2/Compare/Number.pm
+/usr/lib/perl5/*/Test2/Compare/Object.pm
+/usr/lib/perl5/*/Test2/Compare/OrderedSubset.pm
+/usr/lib/perl5/*/Test2/Compare/Pattern.pm
+/usr/lib/perl5/*/Test2/Compare.pm
+/usr/lib/perl5/*/Test2/Compare/Ref.pm
+/usr/lib/perl5/*/Test2/Compare/Regex.pm
+/usr/lib/perl5/*/Test2/Compare/Scalar.pm
+/usr/lib/perl5/*/Test2/Compare/Set.pm
+/usr/lib/perl5/*/Test2/Compare/String.pm
+/usr/lib/perl5/*/Test2/Compare/Undef.pm
+/usr/lib/perl5/*/Test2/Compare/Wildcard.pm
+/usr/lib/perl5/*/Test2/Event/Bail.pm
+/usr/lib/perl5/*/Test2/Event/Diag.pm
+/usr/lib/perl5/*/Test2/Event/Encoding.pm
+/usr/lib/perl5/*/Test2/Event/Exception.pm
+/usr/lib/perl5/*/Test2/EventFacet/About.pm
+/usr/lib/perl5/*/Test2/EventFacet/Amnesty.pm
+/usr/lib/perl5/*/Test2/EventFacet/Assert.pm
+/usr/lib/perl5/*/Test2/EventFacet/Control.pm
+/usr/lib/perl5/*/Test2/EventFacet/Error.pm
+/usr/lib/perl5/*/Test2/EventFacet/Hub.pm
+/usr/lib/perl5/*/Test2/EventFacet/Info.pm
+/usr/lib/perl5/*/Test2/EventFacet/Info/Table.pm
+/usr/lib/perl5/*/Test2/EventFacet/Meta.pm
+/usr/lib/perl5/*/Test2/EventFacet/Parent.pm
+/usr/lib/perl5/*/Test2/EventFacet/Plan.pm
+/usr/lib/perl5/*/Test2/EventFacet.pm
+/usr/lib/perl5/*/Test2/EventFacet/Render.pm
+/usr/lib/perl5/*/Test2/EventFacet/Trace.pm
+/usr/lib/perl5/*/Test2/Event/Fail.pm
+/usr/lib/perl5/*/Test2/Event/Generic.pm
+/usr/lib/perl5/*/Test2/Event/Note.pm
+/usr/lib/perl5/*/Test2/Event/Ok.pm
+/usr/lib/perl5/*/Test2/Event/Pass.pm
+/usr/lib/perl5/*/Test2/Event/Plan.pm
+/usr/lib/perl5/*/Test2/Event.pm
+/usr/lib/perl5/*/Test2/Event/Skip.pm
+/usr/lib/perl5/*/Test2/Event/Subtest.pm
+/usr/lib/perl5/*/Test2/Event/TAP/Version.pm
+/usr/lib/perl5/*/Test2/Event/V2.pm
+/usr/lib/perl5/*/Test2/Event/Waiting.pm
+/usr/lib/perl5/*/Test2/Formatter.pm
+/usr/lib/perl5/*/Test2/Formatter/TAP.pm
+/usr/lib/perl5/*/Test2/Hub/Interceptor.pm
+/usr/lib/perl5/*/Test2/Hub/Interceptor/Terminator.pm
+/usr/lib/perl5/*/Test2/Hub.pm
+/usr/lib/perl5/*/Test2/Hub/Subtest.pm
+/usr/lib/perl5/*/Test2/IPC/Driver/Files.pm
+/usr/lib/perl5/*/Test2/IPC/Driver.pm
+/usr/lib/perl5/*/Test2/IPC.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/API.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/Context.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/EndToEnd.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/Event.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/Hubs.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/IPC.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy.pm
+/usr/lib/perl5/*/Test2/Manual/Anatomy/Utilities.pm
+/usr/lib/perl5/*/Test2/Manual/Concurrency.pm
+/usr/lib/perl5/*/Test2/Manual/Contributing.pm
+/usr/lib/perl5/*/Test2/Manual.pm
+/usr/lib/perl5/*/Test2/Manual/Testing/Introduction.pm
+/usr/lib/perl5/*/Test2/Manual/Testing/Migrating.pm
+/usr/lib/perl5/*/Test2/Manual/Testing/Planning.pm
+/usr/lib/perl5/*/Test2/Manual/Testing.pm
+/usr/lib/perl5/*/Test2/Manual/Testing/Todo.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/FirstTool.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Formatter.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Nesting.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/TestExit.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/TestingDone.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/ToolCompletes.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Plugin/ToolStarts.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Subtest.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/TestBuilder.pm
+/usr/lib/perl5/*/Test2/Manual/Tooling/Testing.pm
+/usr/lib/perl5/*/Test2/Mock.pm
+/usr/lib/perl5/*/Test2/Plugin/BailOnFail.pm
+/usr/lib/perl5/*/Test2/Plugin/DieOnFail.pm
+/usr/lib/perl5/*/Test2/Plugin/ExitSummary.pm
+/usr/lib/perl5/*/Test2/Plugin.pm
+/usr/lib/perl5/*/Test2/Plugin/SRand.pm
+/usr/lib/perl5/*/Test2/Plugin/Times.pm
+/usr/lib/perl5/*/Test2/Plugin/UTF8.pm
+/usr/lib/perl5/*/Test2.pm
+/usr/lib/perl5/*/Test2/Require/AuthorTesting.pm
+/usr/lib/perl5/*/Test2/Require/AutomatedTesting.pm
+/usr/lib/perl5/*/Test2/Require/EnvVar.pm
+/usr/lib/perl5/*/Test2/Require/ExtendedTesting.pm
+/usr/lib/perl5/*/Test2/Require/Fork.pm
+/usr/lib/perl5/*/Test2/Require/Module.pm
+/usr/lib/perl5/*/Test2/Require/NonInteractiveTesting.pm
+/usr/lib/perl5/*/Test2/Require/Perl.pm
+/usr/lib/perl5/*/Test2/Require.pm
+/usr/lib/perl5/*/Test2/Require/RealFork.pm
+/usr/lib/perl5/*/Test2/Require/ReleaseTesting.pm
+/usr/lib/perl5/*/Test2/Require/Threads.pm
+/usr/lib/perl5/*/Test2/Suite.pm
+/usr/lib/perl5/*/Test2/Todo.pm
+/usr/lib/perl5/*/Test2/Tools/AsyncSubtest.pm
+/usr/lib/perl5/*/Test2/Tools/Basic.pm
+/usr/lib/perl5/*/Test2/Tools/ClassicCompare.pm
+/usr/lib/perl5/*/Test2/Tools/Class.pm
+/usr/lib/perl5/*/Test2/Tools/Compare.pm
+/usr/lib/perl5/*/Test2/Tools/Defer.pm
+/usr/lib/perl5/*/Test2/Tools/Encoding.pm
+/usr/lib/perl5/*/Test2/Tools/Event.pm
+/usr/lib/perl5/*/Test2/Tools/Exception.pm
+/usr/lib/perl5/*/Test2/Tools/Exports.pm
+/usr/lib/perl5/*/Test2/Tools/GenTemp.pm
+/usr/lib/perl5/*/Test2/Tools/Grab.pm
+/usr/lib/perl5/*/Test2/Tools/Mock.pm
+/usr/lib/perl5/*/Test2/Tools.pm
+/usr/lib/perl5/*/Test2/Tools/Refcount.pm
+/usr/lib/perl5/*/Test2/Tools/Ref.pm
+/usr/lib/perl5/*/Test2/Tools/Spec.pm
+/usr/lib/perl5/*/Test2/Tools/Subtest.pm
+/usr/lib/perl5/*/Test2/Tools/Target.pm
+/usr/lib/perl5/*/Test2/Tools/Tester.pm
+/usr/lib/perl5/*/Test2/Tools/Tiny.pm
+/usr/lib/perl5/*/Test2/Tools/Warnings.pm
+/usr/lib/perl5/*/Test2/Transition.pod
+/usr/lib/perl5/*/Test2/Util/ExternalMeta.pm
+/usr/lib/perl5/*/Test2/Util/Facets2Legacy.pm
+/usr/lib/perl5/*/Test2/Util/Grabber.pm
+/usr/lib/perl5/*/Test2/Util/Guard.pm
+/usr/lib/perl5/*/Test2/Util/HashBase.pm
+/usr/lib/perl5/*/Test2/Util/Importer.pm
+/usr/lib/perl5/*/Test2/Util.pm
+/usr/lib/perl5/*/Test2/Util/Ref.pm
+/usr/lib/perl5/*/Test2/Util/Stash.pm
+/usr/lib/perl5/*/Test2/Util/Sub.pm
+/usr/lib/perl5/*/Test2/Util/Table/Cell.pm
+/usr/lib/perl5/*/Test2/Util/Table/LineBreak.pm
+/usr/lib/perl5/*/Test2/Util/Table.pm
+/usr/lib/perl5/*/Test2/Util/Term.pm
+/usr/lib/perl5/*/Test2/Util/Times.pm
+/usr/lib/perl5/*/Test2/Util/Trace.pm
+/usr/lib/perl5/*/Test2/V0.pm
+/usr/lib/perl5/*/Test2/Workflow/BlockBase.pm
+/usr/lib/perl5/*/Test2/Workflow/Build.pm
+/usr/lib/perl5/*/Test2/Workflow.pm
+/usr/lib/perl5/*/Test2/Workflow/Runner.pm
+/usr/lib/perl5/*/Test2/Workflow/Task/Action.pm
+/usr/lib/perl5/*/Test2/Workflow/Task/Group.pm
+/usr/lib/perl5/*/Test2/Workflow/Task.pm
+/usr/lib/perl5/*/Test/Builder/Formatter.pm
+/usr/lib/perl5/*/Test/Builder/IO/Scalar.pm
+/usr/lib/perl5/*/Test/Builder/Module.pm
+/usr/lib/perl5/*/Test/Builder/Tester/Color.pm
+/usr/lib/perl5/*/Test/Builder/Tester.pm
+/usr/lib/perl5/*/Test/Builder/TodoDiag.pm
+/usr/lib/perl5/*/Test/Simple.pm
+/usr/lib/perl5/*/Test/Tester/Capture.pm
+/usr/lib/perl5/*/Test/Tester/CaptureRunner.pm
+/usr/lib/perl5/*/Test/Tester/Delegate.pm
+/usr/lib/perl5/*/Test/Tester.pm
+/usr/lib/perl5/*/Test/Tutorial.pod
+/usr/lib/perl5/*/Test/use/ok.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
+/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/MIME/Base64/Base64.so
+/usr/lib/perl5/*/x86_64-linux-thread-multi/auto/Storable/Storable.so
+/usr/lib/perl5/*/x86_64-linux-thread-multi/Digest/MD5.pm
+/usr/lib/perl5/*/x86_64-linux-thread-multi/MIME/Base64.pm
