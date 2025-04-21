@@ -18,4 +18,4 @@
 -Adefine:ldflags="$LDFLAGS"
 -Adefine:lddflags="$LDFLAGS"
 -U d_off64_t
--Dinc_version_list="5.40.0"
+-Dinc_version_list="5.40.1"
